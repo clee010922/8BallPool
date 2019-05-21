@@ -7,9 +7,12 @@ class Table {
   
   Table(ArrayList<Ball> ball, ArrayList<Ball> pocketBalls, ArrayList<Pocket> hole, int turn) {
     onTable = ball;
-    pocketBalls = pocketed;
+    pocketed = pocketBalls;
     hole = holes;
     playerTurn = turn;
+  }
+  
+  Table(){
   }
 
   void pocketBall() {
@@ -28,5 +31,13 @@ class Table {
     if (str.equals("stripe"))
       player1Stripe = true;
     else player1Stripe = false;
+  }
+  
+  void display(){
+    fill(0,255,0);
+    rect(400,200,1000,500);
+  }
+  
+  void update(){
   }
 }
