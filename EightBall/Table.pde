@@ -13,6 +13,7 @@ class Table {
   }
   
   Table(){
+    Ball ball1 = new Ball(50, 50 , false, true, false);
   }
 
   void pocketBall() {
