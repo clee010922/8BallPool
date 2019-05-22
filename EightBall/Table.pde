@@ -44,9 +44,14 @@ class Table {
 
   void pocketBall(int index) {
     Ball temp = onTable[index];
+    onTable[index] = null;
+    pocketed[index] = temp;
   }
 
   void unPocket() {
+    Ball temp = pocketed[index];
+    pocketed[index] = null;
+    onTable[index] = temp;
   }
 
   void changeTurn() {
