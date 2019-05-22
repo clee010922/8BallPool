@@ -40,10 +40,11 @@ int radius = 20;
 float decc = 0.98;
 
 void setup() {
+  background(255);
   size(500, 500);
   balls = new Ball[5];
   for (int i = 0; i < 5; i++) {
-    balls[i] = new Ball(i, radius, random(0, width/2), random(0, height/2));
+    balls[i] = new Ball(i, radius, random(0, width), random(0, height));
   }
 }
 
@@ -60,11 +61,13 @@ void mousePressed() {
 void mouseReleased() {
   selected.xspeed = selected.x-mouseX;
   selected.yspeed = selected.y-mouseY;
+  selected.isSelected = false;
   selected = null;
 }
 
 
 void draw() {
+  background(255);
   for (int i = 0; i < balls.length; i++) {
     balls[i].display();
   }
