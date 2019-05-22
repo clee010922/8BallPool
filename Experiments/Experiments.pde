@@ -2,6 +2,7 @@ public class Ball {
   float xspeed, yspeed, x, y;
   int number;
   int size;
+  boolean isSelected;
 
   public Ball(int num, int radius, float xp, float yp) {
     number = num;
@@ -10,6 +11,7 @@ public class Ball {
     yspeed = 0;
     x = xp;
     y = yp;
+    isSelected = false;
   }
 
   public void display() {
@@ -19,6 +21,9 @@ public class Ball {
       yspeed *= -1;
     fill(255);
     ellipse(x, y, size, size);
+    if (isSelected) {
+      line(x, y, mouseX, mouseY);
+    }
     x+=xspeed*decc;
     y+=yspeed*decc;
   }
@@ -42,6 +47,7 @@ void mousePressed() {
     if (mouseX > balls[i].x-radius && mouseX < balls[i].x+radius &&
       mouseY > balls[i].y-radius && mouseY < balls[i].y+radius) {
       selected = balls[i];
+      selected.isSelected = true;
     }
   }
 }
