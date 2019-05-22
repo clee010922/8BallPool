@@ -60,8 +60,8 @@ void mousePressed() {
 
 void mouseReleased() {
   if (selected != null) {
-    selected.xspeed = (selected.x-mouseX)/5;
-    selected.yspeed = (selected.y-mouseY)/5;
+    selected.xspeed = (selected.x-mouseX)/7;
+    selected.yspeed = (selected.y-mouseY)/7;
     selected.isSelected = false;
     selected = null;
   }
