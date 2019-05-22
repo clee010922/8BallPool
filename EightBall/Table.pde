@@ -1,53 +1,49 @@
 class Table {
-  ArrayList<Ball> onTable;
-  ArrayList<Ball> pocketed;
-  ArrayList<Pocket> holes;
+  Ball[] onTable;
+  Ball[] pocketed;
+  Pocket[] holes;
   int playerTurn;
   boolean player1Stripe;
   
-  Table(ArrayList<Ball> ball, ArrayList<Ball> pocketBalls, ArrayList<Pocket> hole, int turn) {
-    onTable = ball;
-    pocketed = pocketBalls;
-    hole = holes;
-    playerTurn = turn;
-  }
-  
   Table(){
+    onTable = new Ball[16];
+    pocketed = new Ball[16];
     Ball ball1 = new Ball(50, 50 , false, true, false);
-    onTable.add(ball1);
+    onTable[1] = ball1;
     Ball ball2 = new Ball(50, 50 , false, true, false);
-    onTable.add(ball2);
+    onTable[2] = ball2;
     Ball ball3 = new Ball(50, 50 , false, true, false);
-    onTable.add(ball3);
+    onTable[3] = ball3;
     Ball ball4 = new Ball(50, 50 , false, true, false);
-    onTable.add(ball4);
+    onTable[4] = ball4;
     Ball ball5 = new Ball(50, 50 , false, true, false);
-    onTable.add(ball5);
+    onTable[5] = ball5;
     Ball ball6 = new Ball(50, 50 , false, true, false);
-    onTable.add(ball6);
+    onTable[6] = ball6;
     Ball ball7 = new Ball(50, 50 , false, true, false);
-    onTable.add(ball7);
+    onTable[7] = ball7;
     Ball ball8 = new Ball(50, 50 , false, false, true);
-    onTable.add(ball8);
+    onTable[8] = ball8;
     Ball ball9 = new Ball(50, 50 , true, false, false);
-    onTable.add(ball9);
+    onTable[9] = ball9;
     Ball ball10 = new Ball(50, 50 , true, false, false);
-    onTable.add(ball10);
+    onTable[10] = ball10;
     Ball ball11 = new Ball(50, 50 , true, false, false);
-    onTable.add(ball11);
+    onTable[11] = ball11;
     Ball ball12 = new Ball(50, 50 , true, false, false);
-    onTable.add(ball12);
+    onTable[12] = ball12;
     Ball ball13 = new Ball(50, 50 , true, false, false);
-    onTable.add(ball13);
+    onTable[13] = ball13;
     Ball ball14 = new Ball(50, 50 , true, false, false);
-    onTable.add(ball14);
+    onTable[14] = ball14;
     Ball ball15 = new Ball(50, 50 , true, false, false);
-    onTable.add(ball15);
+    onTable[15] = ball15;
     Ball ball0 = new Ball(50, 50 , false, false, false);
-    onTable.add(ball0);
+    onTable[0] = ball0; // white cue ball
   }
 
-  void pocketBall() {
+  void pocketBall(int index) {
+    Ball temp = onTable[index];
   }
 
   void unPocket() {
