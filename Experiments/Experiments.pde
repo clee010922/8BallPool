@@ -15,23 +15,28 @@ public class Ball {
   }
 
   public void display() {
-    if (x - size <= 0 || x - size >= width)
-      xspeed *= -1;
-    if (y - size <= 0 || y - size >= height)
-      yspeed *= -1;
     fill(255);
-    ellipse(x, y, size, size);
+    ellipse(x, y, size*2, size*2);
+  }
+
+  public void move() {
+    if (x - size <= 0 || x +size >= width)
+      xspeed *= -1;
+    if (y - size <= 0 || y + size >= height)
+      yspeed *= -1;
     if (isSelected) {
       line(x, y, mouseX, mouseY);
     }
-    x+=xspeed*decc;
-    y+=yspeed*decc;
+    x+=xspeed;
+    y+=yspeed;
+    xspeed *= decc;
+    yspeed *= decc;
   }
 }
 
 Ball[] balls;
 Ball selected;
-int radius = 50;
+int radius = 20;
 float decc = 0.98;
 
 void setup() {
@@ -62,5 +67,8 @@ void mouseReleased() {
 void draw() {
   for (int i = 0; i < balls.length; i++) {
     balls[i].display();
+  }
+  for (int i = 0; i < balls.length; i++) {
+    balls[i].move();
   }
 }
