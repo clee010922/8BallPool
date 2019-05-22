@@ -28,7 +28,7 @@ void setup() {
   size(500, 500);
   balls = new Ball[5];
   for (int i = 0; i < 5; i++) {
-    balls[0] = new Ball(i, radius, random(0, width/2), random(0, height/2));
+    balls[i] = new Ball(i, radius, random(0, width/2), random(0, height/2));
   }
 }
 
@@ -46,6 +46,9 @@ void draw() {
       selected = balls[i];
     }
     if (selected != null) {
+      if(mousePressed) {
+        line(selected.x, selected.y, mouseX, mouseY);
+      }
       selected.x += selected.speed*selected.xd*decc;
       selected.y += selected.speed*selected.yd*decc;
     }
