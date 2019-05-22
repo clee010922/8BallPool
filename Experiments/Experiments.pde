@@ -13,9 +13,9 @@ public class Ball {
   }
 
   public void display() {
-    if(x - size <= 0 || x - size >= width)
+    if (x - size <= 0 || x - size >= width)
       xspeed *= -1;
-    if(y - size <= 0 || y - size >= height)
+    if (y - size <= 0 || y - size >= height)
       yspeed *= -1;
     fill(255);
     ellipse(x, y, size, size);
@@ -37,6 +37,15 @@ void setup() {
   }
 }
 
+void mousePressed() {
+  for (int i = 0; i < balls.length; i++) {
+    if (mouseX > balls[i].x-radius && mouseX < balls[i].x+radius &&
+      mouseY > balls[i].y-radius && mouseY < balls[i].y+radius) {
+      selected = balls[i];
+    }
+  }
+}
+
 void mouseReleased() {
   selected.xspeed = selected.x-mouseX;
   selected.yspeed = selected.y-mouseY;
@@ -47,16 +56,5 @@ void mouseReleased() {
 void draw() {
   for (int i = 0; i < balls.length; i++) {
     balls[i].display();
-    if (mouseX > balls[i].x-radius && mouseX < balls[i].x+radius &&
-      mouseY > balls[i].y-radius && mouseY < balls[i].y+radius) {
-      selected = balls[i];
-    }
-    if (selected != null) {
-      if(mousePressed) {
-        line(selected.x, selected.y, mouseX, mouseY);
-      }
-      selected.x += selected.speed*selected.xd*decc;
-      selected.y += selected.speed*selected.yd*decc;
-    }
   }
 }
