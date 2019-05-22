@@ -1,21 +1,26 @@
 public class Ball {
-  float speed, xd, yd, x, y;
+  float xspeed, yspeed, x, y;
   int number;
   int size;
 
   public Ball(int num, int radius, float xp, float yp) {
     number = num;
     size = radius;
-    speed = 0;
-    xd = 1;
-    yd = 1;
+    xspeed = 0;
+    yspeed = 0;
     x = xp;
     y = yp;
   }
 
   public void display() {
+    if(x - size <= 0 || x - size >= width)
+      xspeed *= -1;
+    if(y - size <= 0 || y - size >= height)
+      yspeed *= -1;
     fill(255);
     ellipse(x, y, size, size);
+    x+=xspeed*decc;
+    y+=yspeed*decc;
   }
 }
 
@@ -33,8 +38,9 @@ void setup() {
 }
 
 void mouseReleased() {
-  float d = dist(selected.x, selected.y, mouseX, mouseY);
-  selected.speed = d/10;
+  selected.xspeed = selected.x-mouseX;
+  selected.yspeed = selected.y-mouseY;
+  selected = null;
 }
 
 
