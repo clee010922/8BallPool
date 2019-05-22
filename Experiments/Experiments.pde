@@ -20,7 +20,7 @@ public class Ball {
   }
 
   public void move() {
-    if (x - size <= 0 || x +size >= width)
+    if (x - size <= 0 || x + size >= width)
       xspeed *= -1;
     if (y - size <= 0 || y + size >= height)
       yspeed *= -1;
@@ -59,10 +59,12 @@ void mousePressed() {
 }
 
 void mouseReleased() {
-  selected.xspeed = selected.x-mouseX;
-  selected.yspeed = selected.y-mouseY;
-  selected.isSelected = false;
-  selected = null;
+  if (selected != null) {
+    selected.xspeed = (selected.x-mouseX)/5;
+    selected.yspeed = (selected.y-mouseY)/5;
+    selected.isSelected = false;
+    selected = null;
+  }
 }
 
 
