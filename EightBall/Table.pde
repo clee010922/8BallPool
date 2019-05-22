@@ -48,7 +48,7 @@ class Table {
     pocketed[index] = temp;
   }
 
-  void unPocket() {
+  void unPocket(int index) {
     Ball temp = pocketed[index];
     pocketed[index] = null;
     onTable[index] = temp;
@@ -69,6 +69,9 @@ class Table {
   void display(){
     fill(0,255,0);
     rect(400,200,1000,500);
+    for (int i = 0; i < onTable.length; i++){
+      onTable[i].display();
+    }
   }
   
   void update(){

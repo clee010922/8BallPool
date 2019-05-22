@@ -14,5 +14,9 @@ class Ball {
     eightball = ei;
   }
   
+  void display(){
+    fill(255,0,0);
+    circle(x,y,10);
+  }
   
 }
