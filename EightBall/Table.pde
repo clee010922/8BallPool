@@ -45,16 +45,16 @@ class Table {
     onTable[0] = ball0; // white cue ball
     holes[0] = new Pocket(380,180);
     holes[1] = new Pocket(890,180);
-    holes[2] = new Pocket(1390,180);
+    holes[2] = new Pocket(1420,180);
     holes[3] = new Pocket(380,720);
     holes[4] = new Pocket(890,720);
-    holes[5] = new Pocket(1390,720);
-    walls[0] = new Wall(425,175,855,175,425,200);
-    walls[1] = new Wall(925,175,1350,175,925,200);
-    walls[2] = new Wall(425,700,855,700,425,725);
-    walls[3] = new Wall(925,700,1350,700,925,725);
-    walls[4] = new Wall(375,220,400,220,375,675);
-    walls[5] = new Wall(1400,220,1425,220,1400,675);
+    holes[5] = new Pocket(1420,720);
+    walls[0] = new Wall(435,175,855,175,425,200);
+    walls[1] = new Wall(925,175,1365,175,925,200);
+    walls[2] = new Wall(435,700,855,700,425,725);
+    walls[3] = new Wall(925,700,1365,700,925,725);
+    walls[4] = new Wall(375,230,400,220,375,665);
+    walls[5] = new Wall(1400,230,1425,220,1400,665);
     //rect(375, 175, 1050, 550);
   }
 
