@@ -46,25 +46,29 @@ class Table {
     holes[0] = new Pocket(385,180); //top left
     holes[1] = new Pocket(890,180); //top middle
     holes[2] = new Pocket(1415,180); //top right
-    holes[3] = new Pocket(385,720);  //bottom left
+    holes[3] = new Pocket(380,720);  //bottom left
     holes[4] = new Pocket(890,720); //bottom middle
     holes[5] = new Pocket(1415,720); //bottom right
     walls[0] = new Wall(435,175,855,175,425,200); //top left
     walls[1] = new Wall(925,175,1365,175,925,200); //top right
     walls[2] = new Wall(435,700,855,700,425,725); //bottom left
     walls[3] = new Wall(925,700,1365,700,925,725); //bottom right
-    walls[4] = new Wall(375,230,400,230,375,665); //left
-    walls[5] = new Wall(1400,230,1425,230,1400,665); //right
+    walls[4] = new Wall(375,230,400,230,375,670); //left
+    walls[5] = new Wall(1400,230,1425,230,1400,670); //right
     //triangle walls
     //hole0
     walls[6] = new triangleWall(410,175,435,175,435,200);
     walls[7] = new triangleWall(375,230,400,230,375,205);
     //hole1
     //hole2
+    walls[10] = new triangleWall(1365,175,1390,175,1365,200);
     //hole3
     walls[12] = new triangleWall(375,670,400,670,375,695);
+    walls[13] = new triangleWall(435,700,435,725,405,725);
     //hole4
     //hole5
+    walls[16] = new triangleWall(1365,700, 1365,725, 1390,725);
+    walls[17] = new triangleWall(1400, 670, 1425, 670, 1425, 695);
     //rect(375, 175, 1050, 550);
   }
 
@@ -95,12 +99,12 @@ class Table {
   void display(){
     fill(#745300);
     rect(340,140, 1120, 620);
-    //fill(#05AA45);
-    //rect(375, 175, 1050, 550);
+    fill(#07DB59);
+    rect(375, 175, 1050, 550);
     //beginShape();
     //vertex
-    fill(#07DB59);
-    rect(400,200,1000,500);
+    //fill(#07DB59);
+    //rect(400,200,1000,500);
     for (int i = 0; i < onTable.length; i++){
       if (onTable[i] != null){
         onTable[i].display();
