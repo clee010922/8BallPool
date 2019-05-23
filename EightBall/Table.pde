@@ -17,7 +17,7 @@ class Table {
     onTable[2] = ball2;
     Ball ball3 = new Ball(50, 50 , false, true, false);
     onTable[3] = ball3;
-    Ball ball4 = new Ball(1173, 437.5 , false, true, false);
+    Ball ball4 = new Ball(1175, 435 , false, true, false);
     onTable[4] = ball4;
     Ball ball5 = new Ball(50, 50 , false, true, false);
     onTable[5] = ball5;
@@ -29,7 +29,7 @@ class Table {
     onTable[8] = ball8;
     Ball ball9 = new Ball(50, 50 , true, false, false);
     onTable[9] = ball9;
-    Ball ball10 = new Ball(1173, 462.5 , true, false, false);
+    Ball ball10 = new Ball(1175, 465 , true, false, false);
     onTable[10] = ball10;
     Ball ball11 = new Ball(50, 50 , true, false, false);
     onTable[11] = ball11;
@@ -44,9 +44,17 @@ class Table {
     Ball ball0 = new Ball(650, 450 , false, false, false);
     onTable[0] = ball0; // white cue ball
     holes[0] = new Pocket(380,180);
-    holes[1] = new Pocket(890,182.5);
+    holes[1] = new Pocket(890,180);
     holes[2] = new Pocket(1390,180);
+    holes[3] = new Pocket(380,720);
+    holes[4] = new Pocket(890,720);
+    holes[5] = new Pocket(1390,720);
     walls[0] = new Wall(425,175,855,175,425,200);
+    walls[1] = new Wall(925,175,1350,175,925,200);
+    walls[2] = new Wall(425,700,855,700,425,725);
+    walls[3] = new Wall(925,700,1350,700,925,725);
+    walls[4] = new Wall(375,220,400,220,375,675);
+    walls[5] = new Wall(1400,220,1425,220,1400,675);
     //rect(375, 175, 1050, 550);
   }
 
