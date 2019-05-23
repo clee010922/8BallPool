@@ -23,16 +23,20 @@ class Ball {
     circle(x,y,radius);
     if (num != 0){
       fill(255,255,255);
-      circle(x,y,15);
+      circle(x,y,12.5);
+    }
+    if (stripe){
+      arc(x,y-7.25,24, 16.5, PI , TWO_PI);
+      arc(x,y+7.25,24, 16.5, 0 , PI);
     }
     if (num != 0){
       if (num > 9){
-        textSize(11);
+        textSize(10);
         fill(#000000);
         text("" + num,x-7,y+5);
       }
       else{
-        textSize(15);
+        textSize(12.5);
         fill(#000000);
         text("" + num,x-4,y+5);
       }
