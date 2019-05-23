@@ -10,7 +10,7 @@ class Table {
     onTable = new Ball[16];
     pocketed = new Ball[16];
     holes = new Pocket[6];
-    walls = new Wall[6];
+    walls = new Wall[18];
     Ball ball1 = new Ball(1150, 450 , false, true, false,1,#FAF432);
     onTable[1] = ball1;
     Ball ball2 = new Ball(1225, 405 , false, true, false,2,#3252FA);
@@ -43,18 +43,28 @@ class Table {
     onTable[15] = ball15;
     Ball ball0 = new Ball(650, 450 , false, false, false,0,#FFFFFF);
     onTable[0] = ball0; // white cue ball
-    holes[0] = new Pocket(380,180);
-    holes[1] = new Pocket(890,180);
-    holes[2] = new Pocket(1420,180);
-    holes[3] = new Pocket(380,720);
-    holes[4] = new Pocket(890,720);
-    holes[5] = new Pocket(1420,720);
-    walls[0] = new Wall(435,175,855,175,425,200);
-    walls[1] = new Wall(925,175,1365,175,925,200);
-    walls[2] = new Wall(435,700,855,700,425,725);
-    walls[3] = new Wall(925,700,1365,700,925,725);
-    walls[4] = new Wall(375,230,400,220,375,665);
-    walls[5] = new Wall(1400,230,1425,220,1400,665);
+    holes[0] = new Pocket(385,180); //top left
+    holes[1] = new Pocket(890,180); //top middle
+    holes[2] = new Pocket(1415,180); //top right
+    holes[3] = new Pocket(385,720);  //bottom left
+    holes[4] = new Pocket(890,720); //bottom middle
+    holes[5] = new Pocket(1415,720); //bottom right
+    walls[0] = new Wall(435,175,855,175,425,200); //top left
+    walls[1] = new Wall(925,175,1365,175,925,200); //top right
+    walls[2] = new Wall(435,700,855,700,425,725); //bottom left
+    walls[3] = new Wall(925,700,1365,700,925,725); //bottom right
+    walls[4] = new Wall(375,230,400,230,375,665); //left
+    walls[5] = new Wall(1400,230,1425,230,1400,665); //right
+    //triangle walls
+    //hole0
+    walls[6] = new triangleWall(410,175,435,175,435,200);
+    walls[7] = new triangleWall(375,230,400,230,375,205);
+    //hole1
+    //hole2
+    //hole3
+    walls[12] = new triangleWall(375,670,400,670,375,695);
+    //hole4
+    //hole5
     //rect(375, 175, 1050, 550);
   }
 
@@ -99,8 +109,10 @@ class Table {
     for (int i = 0; i < holes.length && holes[i] != null; i++){
       holes[i].display();
     }
-    for (int i = 0; i < walls.length && walls[i] != null; i++){
-      walls[i].display();
+    for (int i = 0; i < walls.length; i++){
+      if (walls[i] != null){
+        walls[i].display();
+      }
     }
   }
   
