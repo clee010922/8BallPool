@@ -5,7 +5,7 @@ class Ball {
   boolean solid;
   boolean eightball;
   float speed;
-  float radius;
+  float radius = 30;
   Ball(float newX, float newY, boolean str, boolean sol, boolean ei){
     x = newX;
     y = newY;
@@ -16,7 +16,7 @@ class Ball {
   
   void display(){
     fill(255,0,0);
-    circle(x,y,10);
+    circle(x,y,radius);
   }
   
 }
