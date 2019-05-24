@@ -3,7 +3,7 @@ public class Ball {
   PVector location, speed;
   int size;
   float decc = 0.97;
-  boolean isSelected;
+  boolean isSelected, isColliding;
 
   public Ball(int radius, float xp, float yp) {
     size = radius;
@@ -13,7 +13,9 @@ public class Ball {
   }
 
   public void display() {
-    fill(255);
+    if (isColliding)
+      fill(255,0,0);
+    else fill(255);
     ellipse(location.x, location.y, size*2, size*2);
   }
 
@@ -27,6 +29,17 @@ public class Ball {
     }
     location.add(speed);
     speed.mult(decc);
+  }
+  
+  public void colliding(Ball other){
+    if (this.location.dist(other.location) < size*2){
+      this.isColliding = true;
+      other.isColliding = true;
+    }
+    else {
+      this.isColliding = false;
+      other.isColliding = false;
+    }
   }
 }
 
