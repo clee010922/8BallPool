@@ -14,7 +14,7 @@ public class Ball {
 
   public void display() {
     if (isColliding)
-      fill(255,0,0);
+      fill(255, 0, 0);
     else fill(255);
     ellipse(location.x, location.y, size*2, size*2);
   }
@@ -30,16 +30,11 @@ public class Ball {
     location.add(speed);
     speed.mult(decc);
   }
-  
-  public void colliding(Ball other){
-    if (this.location.dist(other.location) < size*2){
-      this.isColliding = true;
-      other.isColliding = true;
-    }
-    else {
-      this.isColliding = false;
-      other.isColliding = false;
-    }
+
+  public boolean colliding(Ball other) {
+    if (this.location.dist(other.location) < size*2) {
+      return true;
+    } else return false;
   }
 }
 
@@ -87,5 +82,16 @@ void draw() {
   }
   for (int i = 0; i < balls.length; i++) {
     balls[i].move();
+  }
+  for (int i = 0; i < balls.length; i++) {
+    for (int j = 0; j < balls.length; j++) {
+      if (i != j && balls[i].colliding(balls[j])) {
+        balls[i].isColliding = true;
+        balls[j].isColliding = true;
+      } else {
+        balls[i].isColliding = false;
+        balls[j].isColliding = false;
+      }
+    }
   }
 }
