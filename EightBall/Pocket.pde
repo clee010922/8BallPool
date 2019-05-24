@@ -8,6 +8,6 @@ class Pocket{
   }
   void display(){
     fill(#120D01);
-    circle(x,y,radius);
+    ellipse(x,y,radius, radius);
   }
 }

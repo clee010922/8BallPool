@@ -20,10 +20,10 @@ class Ball {
   
   void display(){
     fill(ballColor);
-    circle(x,y,radius);
+    ellipse(x,y,radius, radius);
     if (num != 0){
       fill(255,255,255);
-      circle(x,y,12.5);
+      ellipse(x,y,12.5, 12.5);
     }
     if (stripe){
       arc(x,y-7.25,24, 16.5, PI , TWO_PI);
