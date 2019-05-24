@@ -8,4 +8,4 @@ Chong Lee and Brandon Chan pd. 3
 
 5/22/19: Chong kept working on the experiment class and the dragging/shooting of the ball. In class, the dragging worked but the ball was moving in a wrong direction. Also, the shapes were leaving traces when they were moving. Looking to fix that. At home, Chong fixed the dragging/shooting of the ball. The ball moves correctly and according to how long the mouse drag was, the ball moves at different speeds.
 
-5/23/19: Brandon continued working on placing the walls and placing the walls at a diagonal that connects with the holes. All the walls are finished for easy x and y detection but might adjust placements later to make it look better.
+5/23/19: Brandon continued working on placing the walls and placing the walls at a diagonal that connects with the holes. All the walls are finished for easy x and y detection but might adjust placements later to make it look better. Chong continued to work on the experiment folder and successfully changed every code regarding movement and location with PVector, which will make our lives easier when calculating collisions. 
