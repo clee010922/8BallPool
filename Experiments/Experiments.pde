@@ -37,7 +37,7 @@ int radius = 20;
 void setup() {
   background(255);
   size(800, 400);
-  balls = new Ball[1];
+  balls = new Ball[5];
   for (int i = 0; i < balls.length; i++) {
     balls[i] = new Ball(radius, random(0, width), random(0, height));
   }
@@ -68,7 +68,7 @@ void mouseReleased() {
 }
 
 void draw() {
-  background(255);
+  background(#07DB59);
   for (int i = 0; i < balls.length; i++) {
     balls[i].display();
   }
