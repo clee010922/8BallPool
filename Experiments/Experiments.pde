@@ -55,9 +55,8 @@ void mousePressed() {
 
 void mouseReleased() {
   if (selected != null) {
-    selected.speed = (selected.sub(mouseX, mouseY)).div(7);
-    selected.xspeed = (selected.x-mouseX)/7;
-    selected.yspeed = (selected.y-mouseY)/7;
+    PVector mouse = new PVector(mouseX, mouseY);
+    selected.speed = (selected.speed.sub(mouse)).div(7);
     selected.isSelected = false;
     selected = null;
   }
