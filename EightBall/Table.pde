@@ -7,6 +7,9 @@ class Table {
   boolean player1Stripe;
   
   Table(){
+    PImage img = loadImage("grass.jpg");
+    img.resize(1800,900);
+    background(img);
     onTable = new Ball[16];
     pocketed = new Ball[16];
     holes = new Pocket[6];
