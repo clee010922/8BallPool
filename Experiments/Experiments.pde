@@ -2,7 +2,7 @@ public class Ball {
 
   PVector location, speed;
   int size;
-  float decc = 0.98;
+  float decc = 0.97;
   boolean isSelected;
 
   public Ball(int radius, float xp, float yp) {
@@ -37,8 +37,8 @@ int radius = 20;
 void setup() {
   background(255);
   size(800, 400);
-  balls = new Ball[5];
-  for (int i = 0; i < 5; i++) {
+  balls = new Ball[1];
+  for (int i = 0; i < balls.length; i++) {
     balls[i] = new Ball(radius, random(0, width), random(0, height));
   }
 }
@@ -55,8 +55,13 @@ void mousePressed() {
 
 void mouseReleased() {
   if (selected != null) {
-    PVector mouse = new PVector(mouseX, mouseY);
-    selected.speed = (selected.speed.sub(mouse)).div(7);
+    PVector mouseV = new PVector(mouseX, mouseY);
+    PVector newSpeed = PVector.sub(selected.location, mouseV).div(7);
+    selected.speed = newSpeed; 
+    //(selected.location.sub(mouse)).div(7);
+    //selected.speed.x = (selected.location.x-mouseX)/7;
+    //selected.speed.y = (selected.location.y-mouseY)/7;
+    //println(selected.speed);
     selected.isSelected = false;
     selected = null;
   }
