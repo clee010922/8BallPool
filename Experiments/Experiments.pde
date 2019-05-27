@@ -3,19 +3,19 @@ public class Ball {
   PVector location, speed;
   int size;
   float decc = 0.97;
-  boolean isSelected, isColliding;
+  boolean isSelected;
+  color c;
 
   public Ball(int radius, float xp, float yp) {
     size = radius;
     location = new PVector(xp, yp);
     speed = new PVector(0, 0);
     isSelected = false;
+    c = color(255, 255, 255);
   }
 
   public void display() {
-    if (isColliding)
-      fill(255, 0, 0);
-    else fill(255);
+    fill(c);
     ellipse(location.x, location.y, size*2, size*2);
   }
 
@@ -33,8 +33,14 @@ public class Ball {
 
   public boolean colliding(Ball other) {
     if (this.location.dist(other.location) < size*2) {
+      this.c = color(255, 0, 0);
+      other.c = color(255, 0, 0);
       return true;
-    } else return false;
+    } else {
+      this.c = color(255, 255, 255);
+      other.c = color(255, 255, 255);
+      return false;
+    }
   }
 }
 
@@ -84,13 +90,9 @@ void draw() {
     balls[i].move();
   }
   for (int i = 0; i < balls.length; i++) {
-    for (int j = 0; j < balls.length; j++) {
-      if (i != j && balls[i].colliding(balls[j])) {
-        balls[i].isColliding = true;
-        balls[j].isColliding = true;
-      } else {
-        balls[i].isColliding = false;
-        balls[j].isColliding = false;
+    for (int j = i+1; j < balls.length; j++) {
+      if (balls[i].colliding(balls[j])) {
+        balls[i].collide(balls[j]);
       }
     }
   }
