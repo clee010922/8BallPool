@@ -51,4 +51,9 @@ class Ball {
     position.add(speed);
     speed.mult(dec);
   }
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> 29070fb01b29799d25c1fd5f1e8e0a480813de57
