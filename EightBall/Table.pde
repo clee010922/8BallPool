@@ -133,7 +133,8 @@ class Table {
     for (int i = 0; i < onTable.length; i++) {
       for (int j = i+1; j < onTable.length; j++) {
         if(onTable[i] != null && onTable[j] != null) {
-          onTable[i].collide(onTable[j]);
+          //onTable[i].collide(onTable[j]);
+          return;
         }
       }
     }
