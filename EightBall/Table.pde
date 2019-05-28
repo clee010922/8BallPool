@@ -47,10 +47,10 @@ class Table {
     holes[1] = new Pocket(593.3,120); //top middle
     holes[2] = new Pocket(943.3,120); //top right
     holes[3] = new Pocket(253.3,480);  //bottom left //here
-    holes[4] = new Pocket(890,720); //bottom middle
-    holes[5] = new Pocket(1415,720); //bottom right
-    walls[0] = new Wall(435,175,850,175,425,200); //top left
-    walls[1] = new Wall(930,175,1365,175,925,200); //top right
+    holes[4] = new Pocket(593.3,480); //bottom middle
+    holes[5] = new Pocket(943.3,480); //bottom right
+    walls[0] = new Wall(290,116.7,566.7,116.7,283.3,133.3); //top left
+    walls[1] = new Wall(930,175,1365,175,925,200); //top right //hereeeeeeeeeeeeeeeee 
     walls[2] = new Wall(435,700,850,700,425,725); //bottom left
     walls[3] = new Wall(930,700,1365,700,925,725); //bottom right
     walls[4] = new Wall(375,230,400,230,375,670); //left
