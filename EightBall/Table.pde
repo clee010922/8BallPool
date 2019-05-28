@@ -127,5 +127,17 @@ class Table {
   }
   
   void update(){
+    boolean allStripesDone = true;
+    boolean allSolidsDone = true;
+    for (int i = 0; i < 7; i++){
+      if (onTable[i] != null){
+        allStripesDone = false;
+      }
+    }
+    for (int i = 8; i < 15; i++){
+      if (onTable[i] != null){
+        allSolidsDone = false;
+      }
+    }
   }
 }
