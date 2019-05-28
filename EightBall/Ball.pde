@@ -3,10 +3,11 @@ class Ball {
   boolean stripe;
   boolean solid;
   boolean eightball;
-  float speed;
   float radius = 20;
   int num;
+  float dec = 0.98;
   color ballColor;
+  boolean isSelected;
   Ball(float newX, float newY, boolean str, boolean sol, boolean ei, int n, color c) {
     position = new PVector(newX, newY);
     speed = new PVector(0, 0);
