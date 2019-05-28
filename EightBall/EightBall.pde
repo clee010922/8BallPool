@@ -1,6 +1,6 @@
 Table t;
 void setup(){
-  size(1800,900);
+  size(1200,600); //1800 900
   t = new Table();
 }
 
