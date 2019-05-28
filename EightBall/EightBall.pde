@@ -30,5 +30,6 @@ void setup() {
 
 void draw() {
   t.display();
-  t.update();
+  //t.update();
+  //println(t.onTable[1].position);
 }
