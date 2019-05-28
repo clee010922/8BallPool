@@ -5,7 +5,7 @@ class Ball {
   boolean solid;
   boolean eightball;
   float speed;
-  float radius = 30;
+  float radius = 20;
   int num;
   color ballColor;
   Ball(float newX, float newY, boolean str, boolean sol, boolean ei, int n, color c){
@@ -23,22 +23,22 @@ class Ball {
     ellipse(x,y,radius, radius);
     if (num != 0){
       fill(255,255,255);
-      ellipse(x,y,12.5, 12.5);
+      ellipse(x,y,8.33, 8.33);
     }
     if (stripe){
-      arc(x,y-7.25,24, 16.5, PI , TWO_PI);
-      arc(x,y+7.25,24, 16.5, 0 , PI);
+      arc(x,y-4.83,16, 11, PI , TWO_PI);
+      arc(x,y+4.83,16, 11, 0 , PI);
     }
     if (num != 0){
       if (num > 9){
-        textSize(10);
+        textSize(6.7);
         fill(#000000);
-        text("" + num,x-7,y+5);
+        text("" + num,x-4.7,y+3.3);
       }
       else{
-        textSize(12.5);
+        textSize(8.3);
         fill(#000000);
-        text("" + num,x-4,y+5);
+        text("" + num,x-2.7,y+3.3);
       }
     }
   }

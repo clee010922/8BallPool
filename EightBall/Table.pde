@@ -7,49 +7,46 @@ class Table {
   boolean player1Stripe;
   
   Table(){
-    PImage img = loadImage("grass.jpg");
-    img.resize(1800,900);
-    background(img);
     onTable = new Ball[16];
     pocketed = new Ball[16];
     holes = new Pocket[6];
     walls = new Wall[18];
-    Ball ball1 = new Ball(1150, 450 , false, true, false,1,#FAF432);
+    Ball ball1 = new Ball(766.7, 300 , false, true, false,1,#FAF432);
     onTable[1] = ball1;
-    Ball ball2 = new Ball(1225, 405 , false, true, false,2,#3252FA);
+    Ball ball2 = new Ball(816.7, 270 , false, true, false,2,#3252FA);
     onTable[2] = ball2;
-    Ball ball3 = new Ball(1200, 480 , false, true, false,3,#FF2600);
+    Ball ball3 = new Ball(800, 320 , false, true, false,3,#FF2600);
     onTable[3] = ball3;
-    Ball ball4 = new Ball(1175, 435 , false, true, false,4,#9F06CE);
+    Ball ball4 = new Ball(783.3, 290 , false, true, false,4,#9F06CE);
     onTable[4] = ball4;
-    Ball ball5 = new Ball(1250, 450 , false, true, false,5,#FC7F00);
+    Ball ball5 = new Ball(833.3, 300 , false, true, false,5,#FC7F00); 
     onTable[5] = ball5;
-    Ball ball6 = new Ball(1225, 465 , false, true, false,6,#2CAF05);
+    Ball ball6 = new Ball(816.7, 310 , false, true, false,6,#2CAF05);
     onTable[6] = ball6;
-    Ball ball7 = new Ball(1250, 390 , false, true, false,7,#D10808);
+    Ball ball7 = new Ball(833.3, 260 , false, true, false,7,#D10808);
     onTable[7] = ball7;
-    Ball ball8 = new Ball(1200, 450 , false, false, true,8,#010300);
+    Ball ball8 = new Ball(800, 300 , false, false, true,8,#010300);
     onTable[8] = ball8;
-    Ball ball9 = new Ball(1250, 420 , true, false, false,9,#FAF432);
+    Ball ball9 = new Ball(833.3, 280 , true, false, false,9,#FAF432);
     onTable[9] = ball9;
-    Ball ball10 = new Ball(1175, 465 , true, false, false,10,#3252FA);
+    Ball ball10 = new Ball(783.3, 310 , true, false, false,10,#3252FA);
     onTable[10] = ball10;
-    Ball ball11 = new Ball(1250, 510 , true, false, false,11,#FF2600);
+    Ball ball11 = new Ball(833.3, 340 , true, false, false,11,#FF2600);
     onTable[11] = ball11;
-    Ball ball12 = new Ball(1225, 495 , true, false, false,12,#9F06CE);
+    Ball ball12 = new Ball(816.7, 330 , true, false, false,12,#9F06CE);
     onTable[12] = ball12;
-    Ball ball13 = new Ball(1200, 420 , true, false, false,13,#FC7F00);
+    Ball ball13 = new Ball(800, 280 , true, false, false,13,#FC7F00);
     onTable[13] = ball13;
-    Ball ball14 = new Ball(1250, 480 , true, false, false,14,#2CAF05);
+    Ball ball14 = new Ball(833.3, 320 , true, false, false,14,#2CAF05);
     onTable[14] = ball14;
-    Ball ball15 = new Ball(1225, 435 , true, false, false,15,#D10808);
+    Ball ball15 = new Ball(816.7, 290 , true, false, false,15,#D10808);
     onTable[15] = ball15;
-    Ball ball0 = new Ball(650, 450 , false, false, false,0,#FFFFFF);
+    Ball ball0 = new Ball(433.3, 300 , false, false, false,0,#FFFFFF);
     onTable[0] = ball0; // white cue ball
-    holes[0] = new Pocket(385,180); //top left
-    holes[1] = new Pocket(890,180); //top middle
-    holes[2] = new Pocket(1415,180); //top right
-    holes[3] = new Pocket(380,720);  //bottom left
+    holes[0] = new Pocket(256.7,120); //top left
+    holes[1] = new Pocket(593.3,120); //top middle
+    holes[2] = new Pocket(943.3,120); //top right
+    holes[3] = new Pocket(253.3,480);  //bottom left //here
     holes[4] = new Pocket(890,720); //bottom middle
     holes[5] = new Pocket(1415,720); //bottom right
     walls[0] = new Wall(435,175,850,175,425,200); //top left
@@ -105,10 +102,11 @@ class Table {
   }
   
   void display(){
+    background(#1263FF);
     fill(#745300);
-    rect(340,140, 1120, 620);
+    rect(226.7,93.3, 746.7, 413.3);
     fill(#07DB59);
-    rect(375, 175, 1050, 550);
+    rect(250, 116.7, 700, 366.7);
     //beginShape();
     //vertex
     //fill(#07DB59);
