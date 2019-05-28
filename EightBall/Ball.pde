@@ -56,9 +56,7 @@ class Ball {
     //find a normal vector
     PVector n = this.position.sub(other.position);
     float d = n.mag();
-    if (d > radius*2)
-      return;
-
+    
     //find minimum translation distance
     PVector mtd = n.mult((radius*2 - d) / d);
 
@@ -67,7 +65,7 @@ class Ball {
     other.position = other.position.sub(mtd.mult(1/2));
 
     //find a unit normal vector
-    PVector un = n.mult(1/n.mag());
+    PVector un = n.div(n.mag());
 
     //find unit tangent vector
     PVector ut = new PVector(-un.y, un.x);
@@ -77,16 +75,26 @@ class Ball {
     float v1t = ut.dot(this.speed);
     float v2n = un.dot(other.speed);
     float v2t = ut.dot(other.speed);
+    
+    //
+    float v1nT = (2*1*v2n)/2;
+    float v2nT = (2*1*v1n)/2;
 
 
     //convert the scalar normal and tangential velocities into vectors
-    PVector v1nTag = un.mult(v2n);
+    PVector v1nTag = un.mult(v1nT);
     PVector v1tTag = ut.mult(v1t);
-    PVector v2nTag = un.mult(v1n);
+    PVector v2nTag = un.mult(v2nT);
     PVector v2tTag = ut.mult(v2t);
 
     //update velocities
     this.speed = v1nTag.add(v1tTag);
     other.speed = v2nTag.add(v2tTag);
+  }
+  
+  public boolean colliding(Ball other) {
+    if (this.position.dist(other.position) < radius*2)
+      return true;
+    else return false;
   }
 }
