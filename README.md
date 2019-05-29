@@ -17,3 +17,11 @@ Brandon: Got all of the balls on the table and in the correct positions. Added a
 5/23/19: 
 Chong: continued to work on the experiment folder and successfully changed every code regarding movement and location with PVector, which will make our lives easier when calculating collisions. 
 Brandon: continued working on placing the walls and placing the walls at a diagonal that connects with the holes. All the walls are finished for easy x and y detection but might adjust placements later to make it look better.
+
+5/24/19:
+Chong:
+Brandon: Started to work on the rules of the game. Added loops in update to check the status of the balls for both players but still need to take into account of the 8 ball. Added a background to the back of the table using an image but converted to just a solid color. 
+
+5/28/19:
+Chong:
+Brandon: Tested the code on the school computer but everything was much bigger than what it appeared on my laptop. Converted everything in table/ball class down to a size of 2/3 by multiplying each value by 2/3.
