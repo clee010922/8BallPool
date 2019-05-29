@@ -21,25 +21,25 @@ class Ball {
 
   void display() {
     fill(ballColor);
-    ellipse(x,y,radius, radius);
+    ellipse(position.x, position.y, radius, radius);
     if (num != 0){
       fill(255,255,255);
-      ellipse(x,y,8.33, 8.33);
+      ellipse(position.x, position.y, 8.33, 8.33);
     }
     if (stripe){
-      arc(x,y-4.83,16, 11, PI , TWO_PI);
-      arc(x,y+4.83,16, 11, 0 , PI);
+      arc(position.x, position.y-4.83,16, 11, PI , TWO_PI);
+      arc(position.x, position.y+4.83,16, 11, 0 , PI);
     }
     if (num != 0){
       if (num > 9){
         textSize(6.7);
         fill(#000000);
-        text("" + num,x-4.7,y+3.3);
+        text("" + num,position.x-4.7, position.y+3.3);
       }
       else{
         textSize(8.3);
         fill(#000000);
-        text("" + num,x-2.7,y+3.3);
+        text("" + num, position.x-2.7, position.y+3.3);
       }
     }
     if (position.x - radius <= 0 || position.x + radius >= width)
