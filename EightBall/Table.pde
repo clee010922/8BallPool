@@ -47,33 +47,33 @@ class Table {
     holes[1] = new Pocket(593.3,120); //top middle
     holes[2] = new Pocket(943.3,120); //top right
     holes[3] = new Pocket(253.3,480);  //bottom left //here
-    holes[4] = new Pocket(890,720); //bottom middle
-    holes[5] = new Pocket(1415,720); //bottom right
-    walls[0] = new Wall(435,175,850,175,425,200); //top left
-    walls[1] = new Wall(930,175,1365,175,925,200); //top right
-    walls[2] = new Wall(435,700,850,700,425,725); //bottom left
-    walls[3] = new Wall(930,700,1365,700,925,725); //bottom right
-    walls[4] = new Wall(375,230,400,230,375,670); //left
-    walls[5] = new Wall(1400,230,1425,230,1400,670); //right
+    holes[4] = new Pocket(593.3,480); //bottom middle
+    holes[5] = new Pocket(943.3,480); //bottom right
+    walls[0] = new Wall(290,116.7,566.7,116.7,283.3,133.3); //top left
+    walls[1] = new Wall(620,116.7,910,116.7,616.7,133.3); //top right
+    walls[2] = new Wall(290,466.7,566.7,466.7,283.3,483.3); //bottom left
+    walls[3] = new Wall(620,466.7,910,466.7,616.7,483.3); //bottom right
+    walls[4] = new Wall(250,153.3,266.7,153.3,250,446.7); //left
+    walls[5] = new Wall(933.3,153.3,950,153.3,933.3,446.7); //right
     //triangle walls
     //hole0
-    walls[6] = new triangleWall(410, 175, 435, 175, 435, 200);
-    walls[7] = new triangleWall(375, 230, 400, 230, 375, 205);
+    walls[6] = new triangleWall(273.3,116.7,290,116.7,290,133.3);
+    walls[7] = new triangleWall(250,153.3,266.7,153.3,250,136.7);
     //hole1
-    walls[8] = new triangleWall(850, 175, 850, 200, 862.5, 175);
-    walls[9] = new triangleWall(930, 175, 917.5, 175, 930, 200);
+    walls[8] = new triangleWall(566.7,116.7,566.7,133.3,575,116.7);
+    walls[9] = new triangleWall(620,116.7,611.7,116.7,620,133.3);
     //hole2
-    walls[10] = new triangleWall(1365, 175, 1390, 175, 1365, 200);
-    walls[11] = new triangleWall(1400, 230, 1425, 230, 1425, 205);
+    walls[10] = new triangleWall(910,116.7,926.7,116.7,910,133.3);
+    walls[11] = new triangleWall(933.3,153.3,950,153.3,950,136.7);
     //hole3
-    walls[12] = new triangleWall(375, 670, 400, 670, 375, 695);
-    walls[13] = new triangleWall(435, 700, 435, 725, 405, 725);
+    walls[12] = new triangleWall(250,446.7,266.7,446.7,250,463.3);
+    walls[13] = new triangleWall(290,466.7,290,483.3,270,483.3);
     //hole4
-    walls[14] = new triangleWall(850, 700, 850, 725, 862.5, 725);
-    walls[15] = new triangleWall(930, 700, 930, 725, 917.5, 725);
+    walls[14] = new triangleWall(566.7,466.7,566.7,483.3,575,483.3);
+    walls[15] = new triangleWall(620,466.7,620,483.3,611.7,483.3);
     //hole5
-    walls[16] = new triangleWall(1365, 700, 1365, 725, 1390, 725);
-    walls[17] = new triangleWall(1400, 670, 1425, 670, 1425, 695);
+    walls[16] = new triangleWall(910,466.7,910,483.3,926.7,483.3);
+    walls[17] = new triangleWall(933.3, 446.7, 950, 446.7, 950, 463.3);
     //rect(375, 175, 1050, 550);
   }
 

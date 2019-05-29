@@ -20,6 +20,10 @@ Brandon: continued working on placing the walls and placing the walls at a diago
 
 5/24/19:
 Chong: Started to work on collisions. In the Ball class, a test code was added to see if the balls were colliding correctly. When the balls were colliding, its color becomes red. It doesn't seem to work properly yet.
+Brandon: Started to work on the rules of the game. Added loops in update to check the status of the balls for both players but still need to take into account of the 8 ball. Added a background to the back of the table using an image but converted to just a solid color.
 
 5/27/19:
 Chong: Transferred everything in Experiments folder to the actual files. The actual files now use PVectors and have updated methods regarding movements. Methods regarding ball collisions and movements are also added in the Ball class. In the Table class, the update methods now is a loop which checks for the collisions between the balls. If they do collide, then they will go through the collide method which handles the new velocity, direction, etc. However, the code doesn't seem to work yet.
+
+5/28/19: Chong: Continued to implement the collisions of the balls.
+Brandon: Tested the code on the school computer but everything was much bigger than what it appeared on my laptop. Converted everything in table/ball class down to a size of 2/3 by multiplying each value by 2/3.
