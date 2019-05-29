@@ -5,6 +5,7 @@ class Table {
   Wall[] walls;
   int playerTurn;
   boolean player1Stripe;
+  Ball selected;
 
   Table(){
     onTable = new Ball[16];
