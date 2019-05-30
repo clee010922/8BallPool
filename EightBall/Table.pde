@@ -4,6 +4,7 @@ class Table {
   Pocket[] holes;
   Wall[] walls;
   int playerTurn;
+  int winner;
   boolean player1Stripe;
   Ball selected;
 
@@ -139,15 +140,80 @@ class Table {
   void update(){
     boolean allStripesDone = true;
     boolean allSolidsDone = true;
-    for (int i = 0; i < 7; i++){
+    boolean eightBallDone;
+    //checks the status of all non cue and eight ball
+    for (int i = 1; i < 8; i++){
       if (onTable[i] != null){
         allStripesDone = false;
       }
     }
-    for (int i = 8; i < 15; i++){
+    for (int i = 9; i < 16; i++){
       if (onTable[i] != null){
         allSolidsDone = false;
       }
     }
+    //checks for status of eightball
+    if (onTable[8] != null){
+      eightBallDone = false;
+    }
+    else{
+      eightBallDone = true;
+    }
+    
+    //player1's turn 
+    if (playerTurn == 1){
+      if (player1Stripe){ //player1 is stripes
+        if (allStripesDone){ //all stripes are done
+          if (eightBallDone){
+            winner = 1; //eightball is done
+          }
+        }
+        else{ //all stripes are not done
+          if (eightBallDone){
+            winner = 2; //eightball is done but all stripes aren't
+          }
+        }
+      }
+      else{//player1 is solids
+        if (allSolidsDone){
+          if (eightBallDone){
+            winner = 1;
+          }
+        }
+        else{
+          if (eightBallDone){
+            winner = 2;
+          }
+        }
+      }
+    }
+    //player2's turn
+    if (playerTurn == 2){
+      if (player1Stripe){ //player2 is solids
+        if (allSolidsDone){ //all stripes are done
+          if (eightBallDone){
+            winner = 2; //eightball is done
+          }
+        }
+        else{ //all solids are not done
+          if (eightBallDone){
+            winner = 1; //eightball is done but all solids aren't
+          }
+        }
+      }
+      else{//player2 is stripes
+        if (allStripesDone){
+          if (eightBallDone){
+            winner = 2;
+          }
+        }
+        else{
+          if (eightBallDone){
+            winner = 1;
+          }
+        }
+      }
+    }
+    
   }
 }
