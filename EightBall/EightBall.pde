@@ -30,4 +30,5 @@ void setup() {
 void draw() {
   t.display();
   t.update();
+  t.moveWhite();
 }
