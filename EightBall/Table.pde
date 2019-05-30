@@ -13,13 +13,13 @@ class Table {
     pocketed = new Ball[16];
     holes = new Pocket[6];
     walls = new Wall[18];
-    Ball ball1 = new Ball(766.7, 300 , false, true, false,1,#FAF432);
+    Ball ball1 = new Ball(764.7, 300 , false, true, false,1,#FAF432);
     onTable[1] = ball1;
-    Ball ball2 = new Ball(816.7, 270 , false, true, false,2,#3252FA);
+    Ball ball2 = new Ball(817.7, 270 , false, true, false,2,#3252FA);
     onTable[2] = ball2;
     Ball ball3 = new Ball(800, 320 , false, true, false,3,#FF2600);
     onTable[3] = ball3;
-    Ball ball4 = new Ball(783.3, 290 , false, true, false,4,#9F06CE);
+    Ball ball4 = new Ball(783.3, 289 , false, true, false,4,#9F06CE);
     onTable[4] = ball4;
     Ball ball5 = new Ball(833.3, 300 , false, true, false,5,#FC7F00);
     onTable[5] = ball5;
