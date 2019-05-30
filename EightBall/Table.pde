@@ -6,7 +6,8 @@ class Table {
   int playerTurn;
   int winner;
   boolean player1Stripe;
-  
+  Ball selected;
+
   Table(){
     onTable = new Ball[16];
     pocketed = new Ball[16];
@@ -20,7 +21,7 @@ class Table {
     onTable[3] = ball3;
     Ball ball4 = new Ball(783.3, 290 , false, true, false,4,#9F06CE);
     onTable[4] = ball4;
-    Ball ball5 = new Ball(833.3, 300 , false, true, false,5,#FC7F00); 
+    Ball ball5 = new Ball(833.3, 300 , false, true, false,5,#FC7F00);
     onTable[5] = ball5;
     Ball ball6 = new Ball(816.7, 310 , false, true, false,6,#2CAF05);
     onTable[6] = ball6;
@@ -53,7 +54,7 @@ class Table {
     walls[0] = new Wall(290,116.7,566.7,116.7,283.3,133.3); //top left
     walls[1] = new Wall(620,116.7,910,116.7,616.7,133.3); //top right
     walls[2] = new Wall(290,466.7,566.7,466.7,283.3,483.3); //bottom left
-    walls[3] = new Wall(620,466.7,910,466.7,616.7,483.3); //bottom right 
+    walls[3] = new Wall(620,466.7,910,466.7,616.7,483.3); //bottom right
     walls[4] = new Wall(250,153.3,266.7,153.3,250,446.7); //left
     walls[5] = new Wall(933.3,153.3,950,153.3,933.3,446.7); //right
     //triangle walls
@@ -95,13 +96,13 @@ class Table {
       playerTurn = 2;
     else playerTurn = 1;
   }
-  
+
   void player1Type(String str) {
     if (str.equals("stripe"))
       player1Stripe = true;
     else player1Stripe = false;
   }
-  
+
   void display(){
     background(#1263FF);
     fill(#745300);
@@ -112,21 +113,30 @@ class Table {
     //vertex
     //fill(#07DB59);
     //rect(400,200,1000,500);
-    for (int i = 0; i < onTable.length; i++){
-      if (onTable[i] != null){
+    for (int i = 0; i < onTable.length; i++) {
+      if (onTable[i] != null) {
         onTable[i].display();
       }
     }
-    for (int i = 0; i < holes.length && holes[i] != null; i++){
+    for (int i = 0; i < holes.length && holes[i] != null; i++) {
       holes[i].display();
     }
-    for (int i = 0; i < walls.length; i++){
-      if (walls[i] != null){
+    for (int i = 0; i < walls.length; i++) {
+      if (walls[i] != null) {
         walls[i].display();
       }
     }
+    for (int i = 0; i < onTable.length; i++) {
+      for (int j = i+1; j < onTable.length; j++) {
+        if (onTable[i] != null && onTable[j] != null) {
+          if (onTable[i].colliding(onTable[j]))
+          return;
+            //onTable[i].collide(onTable[j]);
+        }
+      }
+    }
   }
-  
+
   void update(){
     boolean allStripesDone = true;
     boolean allSolidsDone = true;
@@ -172,6 +182,9 @@ class Table {
     }
     
   }
+<<<<<<< HEAD
   
   
+=======
+>>>>>>> 1f76ce0811d3f0afcd213a5a96215d5a5e7e8ac1
 }
