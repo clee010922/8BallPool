@@ -175,16 +175,45 @@ class Table {
         }
       }
       else{//player1 is solids
+        if (allSolidsDone){
+          if (eightBallDone){
+            winner = 1;
+          }
+        }
+        else{
+          if (eightBallDone){
+            winner = 2;
+          }
+        }
       }
     }
     //player2's turn
     if (playerTurn == 2){
+      if (player1Stripe){ //player2 is solids
+        if (allSolidsDone){ //all stripes are done
+          if (eightBallDone){
+            winner = 2; //eightball is done
+          }
+        }
+        else{ //all solids are not done
+          if (eightBallDone){
+            winner = 1; //eightball is done but all solids aren't
+          }
+        }
+      }
+      else{//player2 is stripes
+        if (allStripesDone){
+          if (eightBallDone){
+            winner = 2;
+          }
+        }
+        else{
+          if (eightBallDone){
+            winner = 1;
+          }
+        }
+      }
     }
     
   }
-<<<<<<< HEAD
-  
-  
-=======
->>>>>>> 1f76ce0811d3f0afcd213a5a96215d5a5e7e8ac1
 }
