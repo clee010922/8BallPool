@@ -21,7 +21,7 @@ class Table {
     onTable[3] = ball3;
     Ball ball4 = new Ball(783.3, 288 , false, true, false,4,#9F06CE);
     onTable[4] = ball4;
-    Ball ball5 = new Ball(833.3, 300 , false, true, false,5,#FC7F00);
+    Ball ball5 = new Ball(843, 302 , false, true, false,5,#FC7F00);
     onTable[5] = ball5;
     Ball ball6 = new Ball(822, 312 , false, true, false,6,#2CAF05);
     onTable[6] = ball6;
@@ -33,13 +33,13 @@ class Table {
     onTable[9] = ball9;
     Ball ball10 = new Ball(783.3, 311 , true, false, false,10,#3252FA);
     onTable[10] = ball10;
-    Ball ball11 = new Ball(833.3, 340 , true, false, false,11,#FF2600);
+    Ball ball11 = new Ball(843, 348 , true, false, false,11,#FF2600);
     onTable[11] = ball11;
     Ball ball12 = new Ball(821, 335 , true, false, false,12,#9F06CE);
     onTable[12] = ball12;
     Ball ball13 = new Ball(803, 278 , true, false, false,13,#FC7F00);
     onTable[13] = ball13;
-    Ball ball14 = new Ball(833.3, 320 , true, false, false,14,#2CAF05);
+    Ball ball14 = new Ball(843, 325 , true, false, false,14,#2CAF05);
     onTable[14] = ball14;
     Ball ball15 = new Ball(822, 290 , true, false, false,15,#D10808);
     onTable[15] = ball15;
