@@ -28,6 +28,7 @@ void setup() {
 }
 
 void draw() {
+  t.start();
   t.display();
   t.update();
 }
