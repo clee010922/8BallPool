@@ -103,6 +103,20 @@ class Table {
     else player1Stripe = false;
   }
 
+  void start() {
+    for (int i = 0; i < onTable.length; i++) {
+      for (int j = i+1; j < onTable.length; j++) {
+        if (onTable[i] != null && onTable[j] != null) {
+          if (onTable[i].position.dist(onTable[j].position) <= onTable[i].radius)
+            onTable[i].collide(onTable[j]);
+        }
+      }
+    }
+    for (int i = 0; i < onTable.length; i++) {
+      onTable[i].move();
+    }
+  }
+
   void display() {
     background(#1263FF);
     fill(#745300);
@@ -124,14 +138,6 @@ class Table {
     for (int i = 0; i < walls.length; i++) {
       if (walls[i] != null) {
         walls[i].display();
-      }
-    }
-    for (int i = 0; i < onTable.length; i++) {
-      for (int j = i+1; j < onTable.length; j++) {
-        if (onTable[i] != null && onTable[j] != null) {
-          if (onTable[i].position.dist(onTable[j].position) <= onTable[i].radius)
-            onTable[i].collide(onTable[j]);
-        }
       }
     }
   }
