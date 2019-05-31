@@ -42,6 +42,10 @@ Chong: Continued to implement the collisions of the balls.
 
 Brandon: Tested the code on the school computer but everything was much bigger than what it appeared on my laptop. Converted everything in table/ball class down to a size of 2/3 by multiplying each value by 2/3.
 
+5/29/19:
+Brandon: Setted up the different conditions to win or lose for both players by checking the types of balls remaining as well as the status of the eightball. Started to work on moving the cue ball around with right click.
+
 5/30/19:
 
 Chong: Added spaces between each balls so they don't collide when they are generated. Still working on collisions.
+Brandon: Finished moveWhite() and was able to keep it from going past the walls as well as overlapping with other balls.
