@@ -12,7 +12,7 @@ void mouseReleased() {
   if (t.selected != null) {
     PVector mouseV = new PVector(mouseX, mouseY);
     PVector newSpeed = PVector.sub(t.selected.position, mouseV).div(7);
-    t.selected.speed = newSpeed; 
+    t.selected.speed = newSpeed;
     //(selected.location.sub(mouse)).div(7);
     //selected.speed.x = (selected.location.x-mouseX)/7;
     //selected.speed.y = (selected.location.y-mouseY)/7;
@@ -31,5 +31,5 @@ void draw() {
   t.start();
   t.display();
   t.update();
-  println(t.onTable[0].position);
+  t.moveWhite();
 }

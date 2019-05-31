@@ -7,6 +7,7 @@ class Table {
   int winner;
   boolean player1Stripe;
   Ball selected;
+  boolean whiteIsMoveable = true;
 
   Table() {
     onTable = new Ball[16];
@@ -140,6 +141,25 @@ class Table {
         walls[i].display();
       }
     }
+  }
+  
+  void moveWhite(){
+      if (whiteIsMoveable && mousePressed && (mouseButton == RIGHT)){
+        if (mouseX > 277.7 && mouseX < 922.3 && mouseY > 144.3 && mouseY < 455.7){
+          boolean placeWhite = true;
+          for (int i = 1; i < onTable.length; i++){// check for distance with other ball
+            if (onTable[i] != null && dist(mouseX, mouseY,
+            onTable[i].position.x, onTable[i].position.y) <= 20){
+               placeWhite = false;
+            }
+          }
+          if (placeWhite){
+              onTable[0].position.x = mouseX; 
+              onTable[0].position.y = mouseY;
+          }
+          placeWhite = true;
+        }
+      }
   }
 
   void update() {
