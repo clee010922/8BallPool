@@ -31,20 +31,69 @@ public class Ball {
     speed.mult(decc);
   }
 
-  public boolean colliding(Ball other) {
-    if (this.location.dist(other.location) < size*2) {
-      return true;
-    } else {
-
-      return false;
-    }
+  public PVector polar(float radius, float angle) {
+    PVector polar = new PVector(radius*cos(angle), radius*sin(angle));
+    return polar;
   }
-  
-    public void collide(Ball other) {
-    //find a normal vector
-    PVector n = this.location.sub(other.location);
-    float d = n.mag();
+
+  public void collide(Ball other) {
+    /*
+    PVector n = other.location.sub(this.location);
+    //float d = n.mag();
+    n = n.normalize();
+    this.location.sub(n.mult(0.1));
+    PVector _n = this.location.sub(other.location);
+    _n = _n.normalize();
+    PVector nv = new PVector(-_n.y, _n.x);
+    nv.normalize();
+    float vStore = other.speed.mag();
+    this.speed.mult(0.9);
+    other.speed.mult(0.75);
+    this.speed.add(_n.mult(0.5*vStore));
+    other.speed.sub(nv.mult(0.5*vStore));
     
+
+    /*
+    //PVector colPoint = (this.location.add(other.location)).div(2);
+     PVector newVel1 =  (other.speed.mult(2)).div(2);
+     PVector newVel2 = (this.speed.mult(2)).div(2);
+     this.speed = newVel1;
+     other.speed = newVel2;
+    /*
+     PVector diff = other.location.sub(this.location);
+     float n = diff.mag();
+     PVector norm = diff.div(n);
+     PVector delta = this.speed.sub(other.speed);
+     float dot = delta.dot(norm);
+     if (dot > 0) {
+     float co = 0.5;
+     float impS = (1+co)*dot*2;
+     PVector imp = norm.mult(impS);
+     this.speed.sub(imp);
+     other.speed.sub(imp);
+     }
+    /*
+     float xd = this.location.x - other.location.x;
+     float yd = this.location.y - other.location.y;
+     float dsq = xd*xd + yd*yd;
+     float xv = other.speed.x - this.speed.x;
+     float yv = other.speed.y - this.speed.y;
+     float dot = xd*xv+yd*yv;
+     if (dot > 0) {
+     float scale = dot / dsq;
+     float xc = xd * scale;
+     float yc = yd * scale;
+     this.speed.x += xc;
+     this.speed.y += yc;
+     other.speed.x += xc;
+     other.speed.y += yc;
+     }
+     */
+    /*
+    //find a normal vector
+    PVector n = other.location.sub(this.location);
+    float d = n.mag();
+
     //find minimum translation distance
     PVector mtd = n.mult((radius*2 - d) / d);
 
@@ -53,7 +102,7 @@ public class Ball {
     other.location = other.location.sub(mtd.mult(1/2));
 
     //find a unit normal vector
-    PVector un = n.div(n.mag());
+    PVector un = n.mult(1/n.mag());
 
     //find unit tangent vector
     PVector ut = new PVector(-un.y, un.x);
@@ -63,21 +112,18 @@ public class Ball {
     float v1t = ut.dot(this.speed);
     float v2n = un.dot(other.speed);
     float v2t = ut.dot(other.speed);
-    
-    //
-    float v1nT = (2*1*v2n)/2;
-    float v2nT = (2*1*v1n)/2;
-
 
     //convert the scalar normal and tangential velocities into vectors
-    PVector v1nTag = un.mult(v1nT);
+    PVector v1nTag = un.mult(v2n);
     PVector v1tTag = ut.mult(v1t);
-    PVector v2nTag = un.mult(v2nT);
+    PVector v2nTag = un.mult(v1n);
     PVector v2tTag = ut.mult(v2t);
 
     //update velocities
     this.speed = v1nTag.add(v1tTag);
     other.speed = v2nTag.add(v2tTag);
+    println(this.location);
+    */
   }
 }
 
@@ -121,16 +167,18 @@ void mouseReleased() {
 void draw() {
   background(#07DB59);
   for (int i = 0; i < balls.length; i++) {
-    balls[i].display();
+    for (int j = i+1; j < balls.length; j++) {
+      if (balls[i].location.dist(balls[j].location) <= radius) {
+        balls[i].collide(balls[j]);
+      }
+    }
   }
   for (int i = 0; i < balls.length; i++) {
     balls[i].move();
   }
   for (int i = 0; i < balls.length; i++) {
-    for (int j = i+1; j < balls.length; j++) {
-      if (balls[i].colliding(balls[j])) {
-        balls[i].collide(balls[j]);
-      }
-    }
+    balls[i].display();
   }
+  println(balls.length);
+  println(balls[0].location);
 }

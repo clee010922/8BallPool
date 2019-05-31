@@ -22,21 +22,20 @@ class Ball {
   void display() {
     fill(ballColor);
     ellipse(position.x, position.y, radius, radius);
-    if (num != 0){
-      fill(255,255,255);
+    if (num != 0) {
+      fill(255, 255, 255);
       ellipse(position.x, position.y, 8.33, 8.33);
     }
-    if (stripe){
-      arc(position.x, position.y-4.83,16, 11, PI , TWO_PI);
-      arc(position.x, position.y+4.83,16, 11, 0 , PI);
+    if (stripe) {
+      arc(position.x, position.y-4.83, 16, 11, PI, TWO_PI);
+      arc(position.x, position.y+4.83, 16, 11, 0, PI);
     }
-    if (num != 0){
-      if (num > 9){
+    if (num != 0) {
+      if (num > 9) {
         textSize(6.7);
         fill(#000000);
-        text("" + num,position.x-4.7, position.y+3.3);
-      }
-      else{
+        text("" + num, position.x-4.7, position.y+3.3);
+      } else {
         textSize(8.3);
         fill(#000000);
         text("" + num, position.x-2.7, position.y+3.3);
@@ -49,11 +48,31 @@ class Ball {
     if (isSelected) {
       line(position.x, position.y, mouseX, mouseY);
     }
+  }
+
+  public void move() {
     position.add(speed);
     speed.mult(dec);
   }
 
+  public PVector polar(float radius, float angle) {
+    PVector polar = new PVector(radius*cos(angle), radius*sin(angle));
+    return polar;
+  }
+
   public void collide(Ball other) {
+    /*
+    float a = this.position.sub(other.position).heading();
+     this.position = other.position.add(this.polar(radius, a));
+     float a1 = this.speed.heading()-a;
+     float a2 = other.speed.heading()-a;
+     PVector v1 = this.polar(this.speed.mag()*cos(a1), a);
+     PVector v2 = this.polar(other.speed.mag()*cos(a2), a);
+     this.speed.sub(v1).add(v2);
+     other.speed.sub(v2).add(v1);
+     */
+     
+     
     //find a normal vector
     PVector n = this.position.sub(other.position);
     float d = n.mag();
@@ -77,25 +96,15 @@ class Ball {
     float v2n = un.dot(other.speed);
     float v2t = ut.dot(other.speed);
 
-    //
-    float v1nT = (2*1*v2n)/2;
-    float v2nT = (2*1*v1n)/2;
-
-
     //convert the scalar normal and tangential velocities into vectors
-    PVector v1nTag = un.mult(v1nT);
+    PVector v1nTag = un.mult(v1n);
     PVector v1tTag = ut.mult(v1t);
-    PVector v2nTag = un.mult(v2nT);
+    PVector v2nTag = un.mult(v2n);
     PVector v2tTag = ut.mult(v2t);
 
     //update velocities
     this.speed = v1nTag.add(v1tTag);
     other.speed = v2nTag.add(v2tTag);
-  }
-
-  public boolean colliding(Ball other) {
-    if (this.position.dist(other.position) < radius*2)
-      return true;
-    else return false;
+    
   }
 }
