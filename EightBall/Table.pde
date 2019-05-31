@@ -3,7 +3,7 @@ class Table {
   Ball[] pocketed;
   Pocket[] holes;
   Wall[] walls;
-  int playerTurn;
+  int playerTurn = 1;
   int winner;
   boolean player1Stripe;
   Ball selected;
@@ -234,6 +234,8 @@ class Table {
         }
       }
     }
-    
+    textSize(25);
+    fill(0,255,0);
+    text("Player" + " " + playerTurn + "'s" + "Turn", 100 ,100);
   }
 }
