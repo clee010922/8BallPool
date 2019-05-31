@@ -79,7 +79,7 @@ class Ball {
 
     //find minimum translation distance
     PVector mtd = n.mult((radius*2 - d) / d);
-
+/**
     //push-pull balls
     this.position = this.position.add(mtd.mult(1/2));
     other.position = other.position.sub(mtd.mult(1/2));
@@ -105,6 +105,7 @@ class Ball {
     //update velocities
     this.speed = v1nTag.add(v1tTag);
     other.speed = v2nTag.add(v2tTag);
+    */
     
   }
 }
