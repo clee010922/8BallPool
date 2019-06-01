@@ -63,8 +63,8 @@ class Ball {
   void collide(Ball other){
     float distance = dist(this.position.x,this.position.y,other.position.x,other.position.y);
     if (distance <= 20){
-      other.speed.x += this.speed.x;
-      other.speed.y += this.speed.y;
+      other.speed.x += this.speed.x / 10;
+      other.speed.y += this.speed.y / 10;
     }
 }
 
