@@ -59,8 +59,16 @@ class Ball {
     PVector polar = new PVector(radius*cos(angle), radius*sin(angle));
     return polar;
   }
+  
+  void collide(Ball other){
+    float distance = dist(this.position.x,this.position.y,other.position.x,other.position.y);
+    if (distance <= 20){
+      other.speed.x += this.speed.x;
+      other.speed.y += this.speed.y;
+    }
+}
 
-  public void collide(Ball other) {
+  //public void collide(Ball other) {
     /*
     float a = this.position.sub(other.position).heading();
      this.position = other.position.add(this.polar(radius, a));
@@ -72,7 +80,7 @@ class Ball {
      other.speed.sub(v2).add(v1);
      */
      
-     
+     /**
     //find a normal vector
     PVector n = this.position.sub(other.position);
     float d = n.mag();
@@ -105,6 +113,6 @@ class Ball {
     //update velocities
     this.speed = v1nTag.add(v1tTag);
     other.speed = v2nTag.add(v2tTag);
-    
   }
+  **/
 }
