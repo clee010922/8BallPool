@@ -44,7 +44,7 @@ class Ball {
     if (position.x - radius <= 0 || position.x + radius >= width)
       speed.x *= -1;
     if (position.y - radius <= 0 || position.y + radius >= height)
-      speed.y *= -1;
+      speed.y *= -1; 
     if (isSelected) {
       line(position.x, position.y, mouseX, mouseY);
     }
@@ -59,7 +59,7 @@ class Ball {
     PVector polar = new PVector(radius*cos(angle), radius*sin(angle));
     return polar;
   }
-  
+
   void collide(Ball other, float xDis,float yDis,float dist){
     float normX = xDis / dist;
     float normY = yDis / dist;
@@ -107,7 +107,7 @@ class Ball {
      this.speed.sub(v1).add(v2);
      other.speed.sub(v2).add(v1);
      */
-     
+
      /**
     //find a normal vector
     PVector n = this.position.sub(other.position);
@@ -115,7 +115,7 @@ class Ball {
 
     //find minimum translation distance
     PVector mtd = n.mult((radius*2 - d) / d);
-
+/**
     //push-pull balls
     this.position = this.position.add(mtd.mult(1/2));
     other.position = other.position.sub(mtd.mult(1/2));

@@ -47,12 +47,6 @@ class Table {
     onTable[15] = ball15;
     Ball ball0 = new Ball(433.3, 300, false, false, false, 0, #FFFFFF);
     onTable[0] = ball0; // white cue ball
-    holes[0] = new Pocket(256.7, 120); //top left
-    holes[1] = new Pocket(593.3, 120); //top middle
-    holes[2] = new Pocket(943.3, 120); //top right
-    holes[3] = new Pocket(253.3, 480);  //bottom left //here
-    holes[4] = new Pocket(593.3, 480); //bottom middle
-    holes[5] = new Pocket(943.3, 480); //bottom right
     walls[0] = new Wall(290, 116.7, 566.7, 116.7, 283.3, 133.3); //top left
     walls[1] = new Wall(620, 116.7, 910, 116.7, 616.7, 133.3); //top right
     walls[2] = new Wall(290, 466.7, 566.7, 466.7, 283.3, 483.3); //bottom left
@@ -79,6 +73,12 @@ class Table {
     walls[16] = new triangleWall(910, 466.7, 910, 483.3, 926.7, 483.3);
     walls[17] = new triangleWall(933.3, 446.7, 950, 446.7, 950, 463.3);
     //rect(375, 175, 1050, 550);
+    holes[0] = new Pocket(266.3, 130); //top left
+    holes[1] = new Pocket(593.3, 120); //top middle
+    holes[2] = new Pocket(933.3, 130); //top right
+    holes[3] = new Pocket(266.3, 470);  //bottom left //here
+    holes[4] = new Pocket(593.3, 480); //bottom middle
+    holes[5] = new Pocket(933.3, 470); //bottom right
   }
 
   void pocketBall(int index) {
