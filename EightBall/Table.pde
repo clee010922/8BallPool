@@ -316,7 +316,7 @@ class Table {
     }
     textSize(25);
     fill(0,255,0);
-    text("Player" + " " + playerTurn + "'s" + "Turn", 100 ,100);
+    text("Player" + " " + playerTurn + "'s" + "Turn", 500 ,50);
 
   }
 }
