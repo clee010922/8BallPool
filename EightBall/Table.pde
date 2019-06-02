@@ -8,7 +8,7 @@ class Table {
   boolean assignedType = false;
   boolean player1Stripe;
   Ball selected;
-  boolean whiteIsMoveable = true;
+  boolean whiteIsMoveable = false;
   boolean foundFirstContact = false;
   float firstContactIndex = -1; //-1 means no contact
   Table() {
@@ -227,7 +227,30 @@ class Table {
           onTable[i].collide(onTable[j], xDis, yDis, dist);
           if (!foundFirstContact && i == 0){
             firstContactIndex = j; 
-            foundFirstContact = true;
+            foundFirstContact = true; 
+            int turn = playerTurn;
+             if (turn == 1){
+              turn++;
+            }
+            else{
+              turn--;
+            }
+            if (turn == 1){
+              if (player1Stripe && firstContactIndex < 8){
+                whiteIsMoveable = true; 
+              }
+              if (!player1Stripe && firstContactIndex > 8){
+                whiteIsMoveable = true;
+              }
+            }
+            if (turn == 2){
+              if (player1Stripe && firstContactIndex > 8){
+                whiteIsMoveable = true;
+              }
+              if (!player1Stripe && firstContactIndex < 8){
+                whiteIsMoveable = true;
+              }
+            }
           }
         }
       }
