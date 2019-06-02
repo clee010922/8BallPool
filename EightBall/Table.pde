@@ -139,7 +139,7 @@ class Table {
   }
 
   void display() {
-    background(#1263FF);
+    background(#FFFFFF);
     fill(#745300);
     rect(226.7, 93.3, 746.7, 413.3);
     fill(#07DB59);
@@ -384,7 +384,7 @@ class Table {
       }
     }
     textSize(25);
-    fill(0,255,0);
+    fill(0,0,0);
     text("Player" + " " + playerTurn + "'s" + "Turn", 500 ,50);
     text("Player 1", 100, 100);
     text("Player 2", 1000, 100);
