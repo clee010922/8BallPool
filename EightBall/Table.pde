@@ -9,6 +9,7 @@ class Table {
   boolean player1Stripe;
   Ball selected;
   boolean whiteIsMoveable = false;
+  boolean foundFirstContact = false;
   float firstContactIndex = -1; //-1 means no contact
   Table() {
     onTable = new Ball[16];
@@ -79,6 +80,10 @@ class Table {
     holes[3] = new Pocket(266.3, 470);  //bottom left //here
     holes[4] = new Pocket(593.3, 480); //bottom middle
     holes[5] = new Pocket(933.3, 470); //bottom right
+  }
+  
+  void resetFindFirstContact(){
+    foundFirstContact = false;
   }
 
   void pocketBall(int index) {
@@ -220,6 +225,10 @@ class Table {
         float dist = sqrt(xDis * xDis + yDis * yDis);
         if (dist < 20){
           onTable[i].collide(onTable[j], xDis, yDis, dist);
+          if (!foundFirstContact && i == 0){
+            firstContactIndex = j; 
+            foundFirstContact = true;
+          }
         }
       }
     }
@@ -329,6 +338,7 @@ class Table {
         text("Stripes", 1000, 150);
       }
     }
+    //text("" + firstContactIndex, 500, 500);
   }
   
   
