@@ -30,7 +30,7 @@ void mouseReleased() {
     //selected.speed.x = (selected.location.x-mouseX)/7;
     //selected.speed.y = (selected.location.y-mouseY)/7;
     //println(selected.speed);
-    println(t.onTable[0].speed);
+    //println(t.onTable[0].speed);
     t.selected.isSelected = false;
     t.selected = null;
     t.changeTurn();
