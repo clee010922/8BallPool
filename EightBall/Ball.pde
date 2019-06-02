@@ -41,10 +41,20 @@ class Ball {
         text("" + num, position.x-2.7, position.y+3.3);
       }
     }
-    if (position.x - radius <= 266.7 || position.x + radius >= 933.3)
+    if ((position.x-10<=266.7 && position.y-10>=150 && position.y+10<=450) ||
+      (position.x+10>=933.3 && position.y-10>=150 && position.y+10<=450))
       speed.x *= -1;
-    if (position.y - radius <= 133.3 || position.y + radius >= 466.7)
-      speed.y *= -1; 
+    if ((position.y-10<=133.3 && position.x-10>=286.3 && position.x+10<=573.3) ||
+      (position.y-10<=133.3 && position.x-10>=613.3 && position.x+10<=913.3) ||
+      (position.y+10>=466.7 && position.x-10>=286.3 && position.x+10<=573.3) ||
+      (position.y+10>=466.7 && position.x-10>=613.3 && position.x+10<=913.3))
+      speed.y *= -1;
+      
+    if (position.x - 10 <= 250 || position.x + 10 >= 950)
+      speed.x *= -1;
+    if (position.y - 10 <= 116.7 || position.y + 10 >= 483.3)
+      speed.y *= -1;
+      
     if (isSelected) {
       line(position.x, position.y, mouseX, mouseY);
     }
@@ -60,7 +70,7 @@ class Ball {
     return polar;
   }
 
-  void collide(Ball other, float xDis,float yDis,float dist){
+  void collide(Ball other, float xDis, float yDis, float dist) {
     float normX = xDis / dist;
     float normY = yDis / dist;
     float midX = (this.position.x + other.position.x)/2;
@@ -83,64 +93,64 @@ class Ball {
     this.speed.y *= 0.95;
   }
   /**
-  void collide(Ball other){
-    float distance = dist(this.position.x,this.position.y,other.position.x,other.position.y);
-    if (distance <= 20){
-      other.speed.x += this.speed.x;
-      other.speed.y += this.speed.y;
-      float angle = atan2(other.position.y - this.position.y, other.position.x - this.position.x);
-      this.position.x = other.position.x - cos(angle) * 20;
-      this.position.y = other.position.y - sin(angle) * 20;
-      this.speed.x *= -.85;
-      this.speed.y *= -.85;
-    }
-  }
-**/
+   void collide(Ball other){
+   float distance = dist(this.position.x,this.position.y,other.position.x,other.position.y);
+   if (distance <= 20){
+   other.speed.x += this.speed.x;
+   other.speed.y += this.speed.y;
+   float angle = atan2(other.position.y - this.position.y, other.position.x - this.position.x);
+   this.position.x = other.position.x - cos(angle) * 20;
+   this.position.y = other.position.y - sin(angle) * 20;
+   this.speed.x *= -.85;
+   this.speed.y *= -.85;
+   }
+   }
+   **/
   //public void collide(Ball other) {
-    /*
+  /*
     float a = this.position.sub(other.position).heading();
-     this.position = other.position.add(this.polar(radius, a));
-     float a1 = this.speed.heading()-a;
-     float a2 = other.speed.heading()-a;
-     PVector v1 = this.polar(this.speed.mag()*cos(a1), a);
-     PVector v2 = this.polar(other.speed.mag()*cos(a2), a);
-     this.speed.sub(v1).add(v2);
-     other.speed.sub(v2).add(v1);
-     */
+   this.position = other.position.add(this.polar(radius, a));
+   float a1 = this.speed.heading()-a;
+   float a2 = other.speed.heading()-a;
+   PVector v1 = this.polar(this.speed.mag()*cos(a1), a);
+   PVector v2 = this.polar(other.speed.mag()*cos(a2), a);
+   this.speed.sub(v1).add(v2);
+   other.speed.sub(v2).add(v1);
+   */
 
-     /**
-    //find a normal vector
-    PVector n = this.position.sub(other.position);
-    float d = n.mag();
-
-    //find minimum translation distance
-    PVector mtd = n.mult((radius*2 - d) / d);
-/**
-    //push-pull balls
-    this.position = this.position.add(mtd.mult(1/2));
-    other.position = other.position.sub(mtd.mult(1/2));
-
-    //find a unit normal vector
-    PVector un = n.div(n.mag());
-
-    //find unit tangent vector
-    PVector ut = new PVector(-un.y, un.x);
-
-    //project velocities onto the un and ut vectors
-    float v1n = un.dot(this.speed);
-    float v1t = ut.dot(this.speed);
-    float v2n = un.dot(other.speed);
-    float v2t = ut.dot(other.speed);
-
-    //convert the scalar normal and tangential velocities into vectors
-    PVector v1nTag = un.mult(v1n);
-    PVector v1tTag = ut.mult(v1t);
-    PVector v2nTag = un.mult(v2n);
-    PVector v2tTag = ut.mult(v2t);
-
-    //update velocities
-    this.speed = v1nTag.add(v1tTag);
-    other.speed = v2nTag.add(v2tTag);
-  }
-  **/
+  /**
+   //find a normal vector
+   PVector n = this.position.sub(other.position);
+   float d = n.mag();
+   
+   //find minimum translation distance
+   PVector mtd = n.mult((radius*2 - d) / d);
+  /**
+   //push-pull balls
+   this.position = this.position.add(mtd.mult(1/2));
+   other.position = other.position.sub(mtd.mult(1/2));
+   
+   //find a unit normal vector
+   PVector un = n.div(n.mag());
+   
+   //find unit tangent vector
+   PVector ut = new PVector(-un.y, un.x);
+   
+   //project velocities onto the un and ut vectors
+   float v1n = un.dot(this.speed);
+   float v1t = ut.dot(this.speed);
+   float v2n = un.dot(other.speed);
+   float v2t = ut.dot(other.speed);
+   
+   //convert the scalar normal and tangential velocities into vectors
+   PVector v1nTag = un.mult(v1n);
+   PVector v1tTag = ut.mult(v1t);
+   PVector v2nTag = un.mult(v2n);
+   PVector v2tTag = ut.mult(v2t);
+   
+   //update velocities
+   this.speed = v1nTag.add(v1tTag);
+   other.speed = v2nTag.add(v2tTag);
+   }
+   **/
 }
