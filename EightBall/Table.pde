@@ -85,6 +85,12 @@ class Table {
     onTable[index] = null;
     pocketed[index] = temp;
   }
+  
+  void changeMoveable(boolean boo){
+   // if (!boo){
+      whiteIsMoveable = boo;
+//}
+  }
 
   void unPocket(int index) {
     Ball temp = pocketed[index];
