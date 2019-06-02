@@ -93,9 +93,9 @@ class Table {
   }
 
   void changeTurn() {
-    if (playerTurn == 1)
-      playerTurn = 2;
-    else playerTurn = 1;
+    if (playerTurn == 1){
+      playerTurn = 2;}
+    else{ playerTurn = 1;}
   }
 
   void player1Type(String str) {
@@ -119,7 +119,9 @@ class Table {
     }
     **/
     for (int i = 0; i < onTable.length; i++) {
-      onTable[i].move();
+      if (onTable[i] != null){
+        onTable[i].move();
+      }
     }
   }
 
@@ -150,6 +152,14 @@ class Table {
   }
   
   void moveWhite(){
+    if (onTable[0] == null){
+      onTable[0] = pocketed[0];
+      pocketed[0] = null;
+      onTable[0].position.x = 100;
+      onTable[0].position.y = 100;
+      onTable[0].speed.x = 0;
+      onTable[0].speed.y = 0;
+    }
       if (whiteIsMoveable && mousePressed && (mouseButton == RIGHT)){
         if (mouseX > 277.7 && mouseX < 922.3 && mouseY > 144.3 && mouseY < 455.7){
           boolean placeWhite = true;
@@ -200,6 +210,15 @@ class Table {
         if (dist < 20){
           onTable[i].collide(onTable[j], xDis, yDis, dist);
         }
+      }
+    }
+  }
+  //potting a ball
+  for (int i = 0; i < onTable.length; i++){
+    for (int p = 0; p < 6; p++){
+      if (onTable[i] != null && dist(holes[p].x,holes[p].y,onTable[i].position.x,onTable[i].position.y) <= 33.3){
+        pocketed[i] = onTable[i];
+        onTable[i] = null;
       }
     }
   }
