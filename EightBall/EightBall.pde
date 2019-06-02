@@ -19,6 +19,7 @@ void mouseReleased() {
     //println(selected.speed);
     t.selected.isSelected = false;
     t.selected = null;
+    t.changeTurn();
   }
 }
 
