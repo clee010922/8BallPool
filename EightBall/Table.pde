@@ -257,6 +257,7 @@ class Table {
     }
   }
   //potting a ball
+  boolean goAgain = false;
   for (int i = 0; i < onTable.length; i++){
     for (int p = 0; p < 6; p++){
       if (onTable[i] != null && dist(holes[p].x,holes[p].y,onTable[i].position.x,onTable[i].position.y) <= 22.5){
@@ -292,6 +293,33 @@ class Table {
                 assignedType = true;
               }
             }
+          }
+          int turnn = playerTurn;
+          if (turnn == 1){
+            turnn++;
+          }
+          else{
+            turnn--;
+          }
+          if (turnn == 1 && player1Stripe && i > 8){
+            goAgain = true;
+          }
+          if (turnn == 1 && !player1Stripe && i < 8){
+            goAgain = true;
+          }
+          if (turnn == 2 && !player1Stripe && i > 8){
+            goAgain = true;
+          }
+          if (turnn == 2 && player1Stripe && i < 8){
+            goAgain = true;
+          }
+        }
+        if (goAgain){
+          if (playerTurn == 2){
+            playerTurn--;
+          }
+          else{
+            playerTurn++;
           }
         }
       }
