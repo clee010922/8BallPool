@@ -7,7 +7,7 @@ class Table {
   int winner;
   boolean player1Stripe;
   Ball selected;
-  boolean whiteIsMoveable = true;
+  boolean whiteIsMoveable = false;
 
   Table() {
     onTable = new Ball[16];
@@ -159,6 +159,7 @@ class Table {
       onTable[0].position.y = 100;
       onTable[0].speed.x = 0;
       onTable[0].speed.y = 0;
+      whiteIsMoveable = true;
     }
       if (whiteIsMoveable && mousePressed && (mouseButton == RIGHT)){
         if (mouseX > 277.7 && mouseX < 922.3 && mouseY > 144.3 && mouseY < 455.7){
@@ -172,6 +173,7 @@ class Table {
           if (placeWhite){
               onTable[0].position.x = mouseX; 
               onTable[0].position.y = mouseY;
+              whiteIsMoveable = false;
           }
           placeWhite = true;
         }
