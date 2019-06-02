@@ -216,7 +216,7 @@ class Table {
   //potting a ball
   for (int i = 0; i < onTable.length; i++){
     for (int p = 0; p < 6; p++){
-      if (onTable[i] != null && dist(holes[p].x,holes[p].y,onTable[i].position.x,onTable[i].position.y) <= 33.3){
+      if (onTable[i] != null && dist(holes[p].x,holes[p].y,onTable[i].position.x,onTable[i].position.y) <= 16.65){
         pocketed[i] = onTable[i];
         onTable[i] = null;
       }
