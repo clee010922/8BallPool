@@ -1,7 +1,7 @@
 class Pocket{
   float x;
   float y;
-  float radius = 40;
+  float radius = 45;
   Pocket(float newX, float newY){
     x = newX;
     y = newY;

@@ -35,4 +35,8 @@ void draw() {
   t.display();
   t.update();
   t.moveWhite();
+  line(266.7, 0, 266.7, height);
+  line(933.3, 0, 933.3, height);
+  line(0, 133.3, width, 133.3);
+  line(0, 466.7, width, 466.7);
 }
