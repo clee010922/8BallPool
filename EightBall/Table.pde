@@ -5,10 +5,11 @@ class Table {
   Wall[] walls;
   int playerTurn = 1;
   int winner;
+  boolean assignedType = false;
   boolean player1Stripe;
   Ball selected;
   boolean whiteIsMoveable = false;
-
+  float firstContactIndex = -1; //-1 means no contact
   Table() {
     onTable = new Ball[16];
     pocketed = new Ball[16];
@@ -201,6 +202,8 @@ class Table {
         allSolidsDone = false;
       }
     }
+    
+    
     //checks for status of eightball
     if (onTable[8] != null) {
       eightBallDone = false;
@@ -227,6 +230,38 @@ class Table {
       if (onTable[i] != null && dist(holes[p].x,holes[p].y,onTable[i].position.x,onTable[i].position.y) <= 16.65){
         pocketed[i] = onTable[i];
         onTable[i] = null;
+        //assigning stripes or solids to each player based on the first ball that is potted
+        if (!assignedType){
+          int turn = playerTurn;
+          if (turn == 1){
+            turn++;
+          }
+          else{
+            turn--;
+          }
+          if (i > 0){
+            if (i < 8){
+              if (turn == 1){
+                player1Stripe = false;
+                 assignedType = true;
+              }
+              if (turn == 2){
+                player1Stripe = true;
+                assignedType = true;
+              }
+            }
+            if (i > 8){
+              if (turn == 1){
+                player1Stripe = true;
+                assignedType = true;
+              }
+              if (turn == 2){
+                player1Stripe = false;
+                assignedType = true;
+              }
+            }
+          }
+        }
       }
     }
   }
