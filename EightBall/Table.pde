@@ -316,7 +316,20 @@ class Table {
     }
     textSize(25);
     fill(0,255,0);
-    text("Player" + " " + playerTurn + "'s" + "Turn", 100 ,100);
-
+    text("Player" + " " + playerTurn + "'s" + "Turn", 500 ,50);
+    text("Player 1", 100, 100);
+    text("Player 2", 1000, 100);
+    if (assignedType){
+      if (player1Stripe){
+        text("Striped", 100, 150);
+        text("Solids", 1000, 150);
+        }
+      else{
+        text("Solids", 100, 150);
+        text("Stripes", 1000, 150);
+      }
+    }
   }
+  
+  
 }
