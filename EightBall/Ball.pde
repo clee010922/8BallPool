@@ -8,6 +8,7 @@ class Ball {
   float dec = 0.98;
   color ballColor;
   boolean isSelected;
+  boolean isMoving;
   Ball(float newX, float newY, boolean str, boolean sol, boolean ei, int n, color c) {
     position = new PVector(newX, newY);
     speed = new PVector(0, 0);
@@ -17,6 +18,7 @@ class Ball {
     num = n;
     ballColor = c;
     isSelected = false;
+    isMoving = false;
   }
 
   void display() {
@@ -49,18 +51,24 @@ class Ball {
       (position.y+10>=466.7 && position.x-10>=286.3 && position.x+10<=573.3) ||
       (position.y+10>=466.7 && position.x-10>=613.3 && position.x+10<=913.3))
       speed.y *= -1;
-      
+
     if (position.x - 10 <= 250 || position.x + 10 >= 950)
       speed.x *= -1;
     if (position.y - 10 <= 116.7 || position.y + 10 >= 483.3)
       speed.y *= -1;
-      
+
     if (isSelected) {
       line(position.x, position.y, mouseX, mouseY);
     }
   }
 
   public void move() {
+    if (speed.mag() < 0.1) {
+      speed.set(0, 0);
+      isMoving = false;
+    } else {
+      isMoving = true;
+    }
     position.add(speed);
     speed.mult(dec);
   }
