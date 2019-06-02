@@ -147,11 +147,6 @@ class Table {
     //vertex
     //fill(#07DB59);
     //rect(400,200,1000,500);
-    for (int i = 0; i < onTable.length; i++) {
-      if (onTable[i] != null) {
-        onTable[i].display();
-      }
-    }
     
     for (int i = 0; i < walls.length; i++) {
       if (walls[i] != null) {
@@ -160,6 +155,11 @@ class Table {
     }
     for (int i = 0; i < holes.length && holes[i] != null; i++) {
       holes[i].display();
+    }
+    for (int i = 0; i < onTable.length; i++) {
+      if (onTable[i] != null) {
+        onTable[i].display();
+      }
     }
   }
   
