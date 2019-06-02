@@ -4,6 +4,7 @@ class Table {
   Pocket[] holes;
   Wall[] walls;
   int playerTurn = 1;
+  boolean gameOver = false;
   int winner;
   boolean assignedType = false;
   boolean player1Stripe;
@@ -332,20 +333,24 @@ class Table {
         if (allStripesDone) { //all stripes are done
           if (eightBallDone) {
             winner = 1; //eightball is done
+            gameOver = true;
           }
         } else { //all stripes are not done
           if (eightBallDone) {
             winner = 2; //eightball is done but all stripes aren't
+            gameOver = true;
           }
         }
       } else {//player1 is solids
         if (allSolidsDone) {
           if (eightBallDone) {
             winner = 1;
+            gameOver = true;
           }
         } else {
           if (eightBallDone) {
             winner = 2;
+            gameOver = true;
           }
         }
       }
@@ -356,20 +361,24 @@ class Table {
         if (allSolidsDone) { //all stripes are done
           if (eightBallDone) {
             winner = 2; //eightball is done
+            gameOver = true;
           }
         } else { //all solids are not done
           if (eightBallDone) {
             winner = 1; //eightball is done but all solids aren't
+            gameOver = true;
           }
         }
       } else {//player2 is stripes
         if (allStripesDone) {
           if (eightBallDone) {
             winner = 2;
+            gameOver = true;
           }
         } else {
           if (eightBallDone) {
             winner = 1;
+            gameOver = true;
           }
         }
       }
@@ -390,6 +399,11 @@ class Table {
       }
     }
     //text("" + firstContactIndex, 500, 500);
+    if (gameOver){
+      textSize(100);
+      fill(255,0,0);
+      text("Winner: Player " + winner, 250, 300); 
+    }
   }
   
   
