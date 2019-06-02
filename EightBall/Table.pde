@@ -173,7 +173,7 @@ class Table {
           if (placeWhite){
               onTable[0].position.x = mouseX; 
               onTable[0].position.y = mouseY;
-              whiteIsMoveable = false;
+              //whiteIsMoveable = false;
           }
           placeWhite = true;
         }
