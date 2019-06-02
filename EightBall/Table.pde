@@ -8,7 +8,8 @@ class Table {
   boolean assignedType = false;
   boolean player1Stripe;
   Ball selected;
-  boolean whiteIsMoveable = false;
+  boolean whiteIsMoveable = true;
+  boolean foundFirstContact = false;
   float firstContactIndex = -1; //-1 means no contact
   Table() {
     onTable = new Ball[16];
@@ -80,6 +81,10 @@ class Table {
     holes[4] = new Pocket(593.3, 470); //bottom middle
     holes[5] = new Pocket(933.3, 470); //bottom right
   }
+  
+  void resetFindFirstContact(){
+    foundFirstContact = false;
+  }
 
   void pocketBall(int index) {
     Ball temp = onTable[index];
@@ -142,11 +147,6 @@ class Table {
     //vertex
     //fill(#07DB59);
     //rect(400,200,1000,500);
-    for (int i = 0; i < onTable.length; i++) {
-      if (onTable[i] != null) {
-        onTable[i].display();
-      }
-    }
     
     for (int i = 0; i < walls.length; i++) {
       if (walls[i] != null) {
@@ -155,6 +155,11 @@ class Table {
     }
     for (int i = 0; i < holes.length && holes[i] != null; i++) {
       holes[i].display();
+    }
+    for (int i = 0; i < onTable.length; i++) {
+      if (onTable[i] != null) {
+        onTable[i].display();
+      }
     }
   }
   
@@ -220,6 +225,10 @@ class Table {
         float dist = sqrt(xDis * xDis + yDis * yDis);
         if (dist < 20){
           onTable[i].collide(onTable[j], xDis, yDis, dist);
+          if (!foundFirstContact && i == 0){
+            firstContactIndex = j; 
+            foundFirstContact = true;
+          }
         }
       }
     }
@@ -227,7 +236,7 @@ class Table {
   //potting a ball
   for (int i = 0; i < onTable.length; i++){
     for (int p = 0; p < 6; p++){
-      if (onTable[i] != null && dist(holes[p].x,holes[p].y,onTable[i].position.x,onTable[i].position.y) <= 16.65){
+      if (onTable[i] != null && dist(holes[p].x,holes[p].y,onTable[i].position.x,onTable[i].position.y) <= 22.5){
         pocketed[i] = onTable[i];
         onTable[i] = null;
         //assigning stripes or solids to each player based on the first ball that is potted
@@ -316,7 +325,21 @@ class Table {
     }
     textSize(25);
     fill(0,255,0);
-    text("Player" + " " + playerTurn + "'s" + "Turn", 100 ,100);
-
+    text("Player" + " " + playerTurn + "'s" + "Turn", 500 ,50);
+    text("Player 1", 100, 100);
+    text("Player 2", 1000, 100);
+    if (assignedType){
+      if (player1Stripe){
+        text("Striped", 100, 150);
+        text("Solids", 1000, 150);
+        }
+      else{
+        text("Solids", 100, 150);
+        text("Stripes", 1000, 150);
+      }
+    }
+    //text("" + firstContactIndex, 500, 500);
   }
+  
+  
 }

@@ -5,6 +5,7 @@ void mousePressed() {
     mouseY > t.onTable[0].position.y-30 && mouseY < t.onTable[0].position.y+30) {
     t.onTable[0].isSelected = true;
     t.selected = t.onTable[0];
+    t.resetFindFirstContact();
   }
 }
 
