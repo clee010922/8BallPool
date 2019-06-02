@@ -20,6 +20,7 @@ void mouseReleased() {
     t.selected.isSelected = false;
     t.selected = null;
     t.changeTurn();
+    t.changeMoveable(false);
   }
 }
 
