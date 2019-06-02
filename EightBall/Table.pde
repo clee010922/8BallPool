@@ -184,6 +184,20 @@ class Table {
       eightBallDone = true;
     }
 
+  //CHECKS FOR BALL COLLISION 
+  for (int i = 0; i < onTable.length; i++){
+    for (int j = i + 1; j < onTable.length; j++){
+      if (onTable[i] != null && onTable[j] != null){
+        float xDis = onTable[j].position.x - onTable[i].position.x;
+        float yDis = onTable[j].position.y - onTable[i].position.y;
+        float dist = sqrt(xDis * xDis + yDis * yDis);
+        if (dist < 20){
+          onTable[i].collide(onTable[j], xDis, yDis, dist);
+        }
+      }
+    }
+  }
+
     //player1's turn 
     if (playerTurn == 1) {
       if (player1Stripe) { //player1 is stripes

@@ -60,6 +60,17 @@ class Ball {
     return polar;
   }
   
+  void collide(Ball other, float xDis,float yDis,float dist){
+    float normX = xDis / dist;
+    float normalY = yDis / dist;
+    float midX = (this.position.x + other.position.x)/2;
+    float midY = (this.position.y + other.position.y)/2;
+    this.position.x = midX - normX * 10;
+    this.position.y = midY - normY * 10;
+    other.position.x = midX + normX * 10;
+    other.position.y = midY + normY * 10;
+  }
+  /**
   void collide(Ball other){
     float distance = dist(this.position.x,this.position.y,other.position.x,other.position.y);
     if (distance <= 20){
@@ -72,7 +83,7 @@ class Ball {
       this.speed.y *= -.85;
     }
   }
-
+**/
   //public void collide(Ball other) {
     /*
     float a = this.position.sub(other.position).heading();
