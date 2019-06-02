@@ -11,6 +11,7 @@ class Table {
   Ball selected;
   boolean whiteIsMoveable = false;
   boolean foundFirstContact = false;
+  boolean isStillMoving = false;
   float firstContactIndex = -1; //-1 means no contact
   Table() {
     onTable = new Ball[16];
@@ -208,7 +209,13 @@ class Table {
         allSolidsDone = false;
       }
     }
-    
+    for (int i = 0; i < onTable.length; i++) {
+      if (onTable[i] != null && !(onTable[i].isMoving) && !(onTable[0].isMoving)) {
+        isStillMoving = false;
+      } else {
+        isStillMoving = true;
+      }
+    }   
     
     //checks for status of eightball
     if (onTable[8] != null) {
