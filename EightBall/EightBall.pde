@@ -2,7 +2,7 @@ Table t;
 
 void mousePressed() {
   if (!(t.gameOver) && t.onTable[0] != null && mouseButton == LEFT && t.onTable[0].position.x > 100 && mouseX > t.onTable[0].position.x-30 && mouseX < t.onTable[0].position.x+30 &&
-    mouseY > t.onTable[0].position.y-30 && mouseY < t.onTable[0].position.y+30) {
+    mouseY > t.onTable[0].position.y-30 && mouseY < t.onTable[0].position.y+30 && !(t.isStillMoving)) {
     t.onTable[0].isSelected = true;
     t.selected = t.onTable[0];
     t.resetFindFirstContact();
