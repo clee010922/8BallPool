@@ -44,7 +44,7 @@ class Ball {
     if (position.x - radius <= 0 || position.x + radius >= width)
       speed.x *= -1;
     if (position.y - radius <= 0 || position.y + radius >= height)
-      speed.y *= -1;
+      speed.y *= -1; 
     if (isSelected) {
       line(position.x, position.y, mouseX, mouseY);
     }
