@@ -8,7 +8,7 @@ class Table {
   boolean assignedType = false;
   boolean player1Stripe;
   Ball selected;
-  boolean whiteIsMoveable = false;
+  boolean whiteIsMoveable = true;
   boolean foundFirstContact = false;
   float firstContactIndex = -1; //-1 means no contact
   Table() {
@@ -236,7 +236,7 @@ class Table {
   //potting a ball
   for (int i = 0; i < onTable.length; i++){
     for (int p = 0; p < 6; p++){
-      if (onTable[i] != null && dist(holes[p].x,holes[p].y,onTable[i].position.x,onTable[i].position.y) <= 16.65){
+      if (onTable[i] != null && dist(holes[p].x,holes[p].y,onTable[i].position.x,onTable[i].position.y) <= 22.5){
         pocketed[i] = onTable[i];
         onTable[i] = null;
         //assigning stripes or solids to each player based on the first ball that is potted
