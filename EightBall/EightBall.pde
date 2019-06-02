@@ -1,7 +1,7 @@
 Table t;
 
 void mousePressed() {
-  if (mouseX > t.onTable[0].position.x-30 && mouseX < t.onTable[0].position.x+30 &&
+  if (mouseButton == LEFT && mouseX > t.onTable[0].position.x-30 && mouseX < t.onTable[0].position.x+30 &&
     mouseY > t.onTable[0].position.y-30 && mouseY < t.onTable[0].position.y+30) {
     t.onTable[0].isSelected = true;
     t.selected = t.onTable[0];
