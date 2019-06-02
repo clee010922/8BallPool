@@ -49,3 +49,10 @@ Brandon: Setted up the different conditions to win or lose for both players by c
 
 Chong: Added spaces between each balls so they don't collide when they are generated. Still working on collisions.
 Brandon: Finished moveWhite() and was able to keep it from going past the walls as well as overlapping with other balls.
+
+5/31/19:
+
+Brandon: Worked on the disappearing balls after collision problem. Added a display to know whose turn it is.
+
+6/1/19: 
+Brandon: Ball on ball collision works at an angle to each other and don't disappear anymore. Was able to undisplay a ball when it gets close enough to a hole. Able to replace the white ball after it enters a hole by putting it outside the table and adding it back in with right click.
