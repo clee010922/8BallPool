@@ -62,13 +62,25 @@ class Ball {
   
   void collide(Ball other, float xDis,float yDis,float dist){
     float normX = xDis / dist;
-    float normalY = yDis / dist;
+    float normY = yDis / dist;
     float midX = (this.position.x + other.position.x)/2;
     float midY = (this.position.y + other.position.y)/2;
     this.position.x = midX - normX * 10;
     this.position.y = midY - normY * 10;
     other.position.x = midX + normX * 10;
     other.position.y = midY + normY * 10;
+    float dVector = (this.speed.x - other.speed.x) * normX;
+    dVector += (this.speed.y - other.speed.y) * normY;
+    float dvx = dVector * normX;
+    float dvy = dVector * normY;
+    this.speed.x -= dvx;
+    this.speed.y -= dvy;
+    other.speed.x += dvx;
+    other.speed.y += dvy;
+    other.speed.x *= 0.98;
+    other.speed.y *= 0.98;
+    this.speed.x *= 0.95;
+    this.speed.y *= 0.95;
   }
   /**
   void collide(Ball other){
