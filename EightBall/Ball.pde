@@ -41,9 +41,9 @@ class Ball {
         text("" + num, position.x-2.7, position.y+3.3);
       }
     }
-    if (position.x - radius <= 0 || position.x + radius >= width)
+    if (position.x - radius <= 266.7 || position.x + radius >= 933.3)
       speed.x *= -1;
-    if (position.y - radius <= 0 || position.y + radius >= height)
+    if (position.y - radius <= 133.3 || position.y + radius >= 466.7)
       speed.y *= -1; 
     if (isSelected) {
       line(position.x, position.y, mouseX, mouseY);
