@@ -3,11 +3,11 @@ class Table {
   Ball[] pocketed;
   Pocket[] holes;
   Wall[] walls;
-  int playerTurn;
+  int playerTurn = 1;
   int winner;
   boolean player1Stripe;
   Ball selected;
-  boolean whiteIsMoveable = true;
+  boolean whiteIsMoveable = false;
 
   Table() {
     onTable = new Ball[16];
@@ -93,9 +93,9 @@ class Table {
   }
 
   void changeTurn() {
-    if (playerTurn == 1)
-      playerTurn = 2;
-    else playerTurn = 1;
+    if (playerTurn == 1){
+      playerTurn = 2;}
+    else{ playerTurn = 1;}
   }
 
   void player1Type(String str) {
@@ -105,16 +105,23 @@ class Table {
   }
 
   void start() {
+    /**
     for (int i = 0; i < onTable.length; i++) {
       for (int j = i+1; j < onTable.length; j++) {
         if (onTable[i] != null && onTable[j] != null) {
           if (onTable[i].position.dist(onTable[j].position) <= onTable[i].radius)
+           float xDis = onTable[j].position.x - onTable[i].position.x;
+          float yDis = onTable[j].position.y - onTable[i].position.y;
+          float dist = sqrt(xDis * xDis + yDis * yDis);
             onTable[i].collide(onTable[j]);
         }
       }
     }
+    **/
     for (int i = 0; i < onTable.length; i++) {
-      onTable[i].move();
+      if (onTable[i] != null){
+        onTable[i].move();
+      }
     }
   }
 
@@ -128,14 +135,15 @@ class Table {
     //vertex
     //fill(#07DB59);
     //rect(400,200,1000,500);
+    for (int i = 0; i < holes.length && holes[i] != null; i++) {
+      holes[i].display();
+    }
     for (int i = 0; i < onTable.length; i++) {
       if (onTable[i] != null) {
         onTable[i].display();
       }
     }
-    for (int i = 0; i < holes.length && holes[i] != null; i++) {
-      holes[i].display();
-    }
+    
     for (int i = 0; i < walls.length; i++) {
       if (walls[i] != null) {
         walls[i].display();
@@ -144,6 +152,15 @@ class Table {
   }
   
   void moveWhite(){
+    if (onTable[0] == null){
+      onTable[0] = pocketed[0];
+      pocketed[0] = null;
+      onTable[0].position.x = 100;
+      onTable[0].position.y = 100;
+      onTable[0].speed.x = 0;
+      onTable[0].speed.y = 0;
+      whiteIsMoveable = true;
+    }
       if (whiteIsMoveable && mousePressed && (mouseButton == RIGHT)){
         if (mouseX > 277.7 && mouseX < 922.3 && mouseY > 144.3 && mouseY < 455.7){
           boolean placeWhite = true;
@@ -156,6 +173,7 @@ class Table {
           if (placeWhite){
               onTable[0].position.x = mouseX; 
               onTable[0].position.y = mouseY;
+              //whiteIsMoveable = false;
           }
           placeWhite = true;
         }
@@ -183,6 +201,29 @@ class Table {
     } else {
       eightBallDone = true;
     }
+
+  //CHECKS FOR BALL COLLISION 
+  for (int i = 0; i < onTable.length; i++){
+    for (int j = i + 1; j < onTable.length; j++){
+      if (onTable[i] != null && onTable[j] != null){
+        float xDis = onTable[j].position.x - onTable[i].position.x;
+        float yDis = onTable[j].position.y - onTable[i].position.y;
+        float dist = sqrt(xDis * xDis + yDis * yDis);
+        if (dist < 20){
+          onTable[i].collide(onTable[j], xDis, yDis, dist);
+        }
+      }
+    }
+  }
+  //potting a ball
+  for (int i = 0; i < onTable.length; i++){
+    for (int p = 0; p < 6; p++){
+      if (onTable[i] != null && dist(holes[p].x,holes[p].y,onTable[i].position.x,onTable[i].position.y) <= 16.65){
+        pocketed[i] = onTable[i];
+        onTable[i] = null;
+      }
+    }
+  }
 
     //player1's turn 
     if (playerTurn == 1) {
@@ -232,5 +273,9 @@ class Table {
         }
       }
     }
+    textSize(25);
+    fill(0,255,0);
+    text("Player" + " " + playerTurn + "'s" + "Turn", 100 ,100);
+
   }
 }
