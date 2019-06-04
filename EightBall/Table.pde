@@ -79,7 +79,7 @@ class Table {
     holes[0] = new Pocket(266.3, 130); //top left
     holes[1] = new Pocket(593.3, 130); //top middle
     holes[2] = new Pocket(933.3, 130); //top right
-    holes[3] = new Pocket(266.3, 470);  //bottom left //here
+    holes[3] = new Pocket(266.3, 470);  //bottom left 
     holes[4] = new Pocket(593.3, 470); //bottom middle
     holes[5] = new Pocket(933.3, 470); //bottom right
   }
@@ -216,7 +216,9 @@ class Table {
         isStillMoving = true;
       }
     }   
-    
+    if (isStillMoving == false && foundFirstContact == false){
+      whiteIsMoveable = true;
+    }
     //checks for status of eightball
     if (onTable[8] != null) {
       eightBallDone = false;
@@ -243,6 +245,7 @@ class Table {
             else{
               turn--;
             }
+            //whiteIsMoveable = true;
             if (turn == 1){
               if (player1Stripe && firstContactIndex < 8){
                 whiteIsMoveable = true; 
@@ -263,7 +266,10 @@ class Table {
         }
       }
     }
-  }
+    //if (!foundFirstContact){
+    //  whiteIsMoveable = true;
+    //}  
+}
   //potting a ball
   boolean goAgain = false;
   for (int i = 0; i < onTable.length; i++){
@@ -333,9 +339,15 @@ class Table {
       }
     }
   }
-
+    int turnnn = playerTurn;
+          if (turnnn == 1){
+            turnnn++;
+          }
+          else{
+            turnnn--;
+          }
     //player1's turn 
-    if (playerTurn == 1) {
+    if (turnnn == 1) {
       if (player1Stripe) { //player1 is stripes
         if (allStripesDone) { //all stripes are done
           if (eightBallDone) {
@@ -363,7 +375,7 @@ class Table {
       }
     }
     //player2's turn
-    if (playerTurn == 2) {
+    if (turnnn == 2) {
       if (player1Stripe) { //player2 is solids
         if (allSolidsDone) { //all stripes are done
           if (eightBallDone) {
@@ -411,6 +423,58 @@ class Table {
       fill(255,0,0);
       text("Winner: Player " + winner, 250, 300); 
     }
+   float h1 = 180;
+   for (int j = 1; j < 8; j++){
+     fill(255,255,255);
+     ellipse(190,h1,20,20);
+     h1 += 40;
+   }
+   h1 = 180;
+   for (int k = 9; k < pocketed.length; k++){
+     fill(255,255,255);
+     ellipse(1000,h1,20,20);
+     h1 += 40;
+   }
+    
+   float player1Height = 180;
+   float player2Height = 180;
+   if (player1Stripe){
+     for (int i = 1; i < 8; i++){
+       if (pocketed[i] != null){
+         pocketed[i].position.x = 1000;
+         pocketed[i].position.y = player2Height;
+         pocketed[i].display();
+         player2Height += 40;
+       }
+     }
+     for (int k = 9; k < pocketed.length;k++){
+       if (pocketed[k] != null){
+         pocketed[k].position.x = 190;
+         pocketed[k].position.y = player1Height;
+         pocketed[k].display();
+         player1Height += 40;
+       }
+     }
+   }
+     if (!player1Stripe){
+     for (int i = 1; i < 8; i++){
+       if (pocketed[i] != null){
+         pocketed[i].position.x = 190;
+         pocketed[i].position.y = player1Height;
+         pocketed[i].display();
+         player1Height += 40;
+       }
+     }
+     for (int k = 9; k < pocketed.length;k++){
+       if (pocketed[k] != null){
+         pocketed[k].position.x = 1000;
+         pocketed[k].position.y = player2Height;
+         pocketed[k].display();
+         player2Height += 40;
+       }
+     }
+     
+   }
   }
   
   
