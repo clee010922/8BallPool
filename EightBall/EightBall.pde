@@ -13,6 +13,7 @@ void mouseReleased() {
   if (t.selected != null) {
     PVector mouseV = new PVector(mouseX, mouseY);
     PVector newSpeed = PVector.sub(t.selected.position, mouseV).div(7);
+    /*
     if (abs(newSpeed.x) > 40) {
       if (newSpeed.x > 0)
         newSpeed.x = 40;
@@ -25,6 +26,7 @@ void mouseReleased() {
       if (newSpeed.y < 0)
         newSpeed.y = -40;
     }
+    */
     t.selected.speed = newSpeed;
     //(selected.location.sub(mouse)).div(7);
     //selected.speed.x = (selected.location.x-mouseX)/7;
