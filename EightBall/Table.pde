@@ -216,7 +216,9 @@ class Table {
         isStillMoving = true;
       }
     }   
-    
+    if (isStillMoving == false && foundFirstContact == false){
+      whiteIsMoveable = true;
+    }
     //checks for status of eightball
     if (onTable[8] != null) {
       eightBallDone = false;
@@ -243,6 +245,7 @@ class Table {
             else{
               turn--;
             }
+            //whiteIsMoveable = true;
             if (turn == 1){
               if (player1Stripe && firstContactIndex < 8){
                 whiteIsMoveable = true; 
@@ -263,7 +266,10 @@ class Table {
         }
       }
     }
-  }
+    //if (!foundFirstContact){
+    //  whiteIsMoveable = true;
+    //}  
+}
   //potting a ball
   boolean goAgain = false;
   for (int i = 0; i < onTable.length; i++){
