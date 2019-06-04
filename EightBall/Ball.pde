@@ -44,6 +44,31 @@ class Ball {
       }
     }
     
+    if (position.x < 266.3 && position.y < 130){
+      position.x = 266.3;
+      position.y = 130;
+    }
+    if (position.x < 266.3 && position.y > 470){
+      position.x = 266.3;
+      position.y = 470;
+    }
+    if (position.x > 573.3 && position.x < 613.3 && position.y < 130){
+      position.x = 593.3;
+      position.y = 130;
+    }
+    if (position.x > 573.3 && position.x < 613.3 && position.y > 470){
+      position.x = 593.3;
+      position.y = 470;
+    }
+    if (position.x > 933.3 && position.y < 130){
+      position.x = 933.3;
+      position.y = 130;
+    }
+    if (position.x > 933.3 && position.y > 470){
+      position.x = 933.3;
+      position.y = 470;
+    }
+    
     if (position.y < 143.3 && position.x > 283.3 && position.x < 566.7){
       speed.y *= -1;
       position.y = 143.3;

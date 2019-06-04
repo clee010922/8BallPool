@@ -79,7 +79,7 @@ class Table {
     holes[0] = new Pocket(266.3, 130); //top left
     holes[1] = new Pocket(593.3, 130); //top middle
     holes[2] = new Pocket(933.3, 130); //top right
-    holes[3] = new Pocket(266.3, 470);  //bottom left //here
+    holes[3] = new Pocket(266.3, 470);  //bottom left 
     holes[4] = new Pocket(593.3, 470); //bottom middle
     holes[5] = new Pocket(933.3, 470); //bottom right
   }
