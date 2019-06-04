@@ -417,6 +417,18 @@ class Table {
       fill(255,0,0);
       text("Winner: Player " + winner, 250, 300); 
     }
+   float h1 = 180;
+   for (int j = 1; j < 8; j++){
+     fill(255,255,255);
+     ellipse(190,h1,20,20);
+     h1 += 40;
+   }
+   h1 = 180;
+   for (int k = 9; k < pocketed.length; k++){
+     fill(255,255,255);
+     ellipse(1000,h1,20,20);
+     h1 += 40;
+   }
     
    float player1Height = 180;
    float player2Height = 180;
@@ -431,7 +443,7 @@ class Table {
      }
      for (int k = 9; k < pocketed.length;k++){
        if (pocketed[k] != null){
-         pocketed[k].position.x = 100;
+         pocketed[k].position.x = 190;
          pocketed[k].position.y = player1Height;
          pocketed[k].display();
          player1Height += 40;
@@ -441,7 +453,7 @@ class Table {
      if (!player1Stripe){
      for (int i = 1; i < 8; i++){
        if (pocketed[i] != null){
-         pocketed[i].position.x = 100;
+         pocketed[i].position.x = 190;
          pocketed[i].position.y = player1Height;
          pocketed[i].display();
          player1Height += 40;
