@@ -43,6 +43,32 @@ class Ball {
         text("" + num, position.x-2.7, position.y+3.3);
       }
     }
+    
+    if (position.y < 143.3 && position.x > 283.3 && position.x < 566.7){
+      speed.y *= -1;
+      position.y = 143.3;
+    }
+    if (position.y < 143.3 && position.x > 616.7 && position.x < 910){
+      speed.y *= -1;
+      position.y = 143.3;
+    }
+    if (position.y > 456.7 && position.x > 283.3 && position.x < 566.7){
+      speed.y *= -1;
+      position.y = 456.7;
+    }
+    if (position.y > 455.7 && position.x > 616.7 && position.x < 910){
+      speed.y *= -1;
+      position.y = 456.7;
+    }
+    if (position.x < 276.7 && position.y > 153.3 && position.y < 446.7){
+      speed.x *= -1;
+      position.x = 276.7;
+    }
+    if (position.x > 923.3 && position.y > 153.3 && position.y < 446.7){
+      speed.x *= -1;
+      position.x = 923.3;
+    }
+    /**
     if ((position.x-10<=266.7 && position.y-10>=150 && position.y+10<=450) ||
       (position.x+10>=933.3 && position.y-10>=150 && position.y+10<=450))
       speed.x *= -1;
@@ -56,7 +82,7 @@ class Ball {
       speed.x *= -1;
     if (position.y - 10 <= 116.7 || position.y + 10 >= 483.3)
       speed.y *= -1;
-
+    **/
     if (isSelected) {
       line(position.x, position.y, mouseX, mouseY);
     }
