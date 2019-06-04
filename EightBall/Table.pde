@@ -417,6 +417,46 @@ class Table {
       fill(255,0,0);
       text("Winner: Player " + winner, 250, 300); 
     }
+    
+   float player1Height = 180;
+   float player2Height = 180;
+   if (player1Stripe){
+     for (int i = 1; i < 8; i++){
+       if (pocketed[i] != null){
+         pocketed[i].position.x = 1000;
+         pocketed[i].position.y = player2Height;
+         pocketed[i].display();
+         player2Height += 40;
+       }
+     }
+     for (int k = 9; k < pocketed.length;k++){
+       if (pocketed[k] != null){
+         pocketed[k].position.x = 100;
+         pocketed[k].position.y = player1Height;
+         pocketed[k].display();
+         player1Height += 40;
+       }
+     }
+   }
+     if (!player1Stripe){
+     for (int i = 1; i < 8; i++){
+       if (pocketed[i] != null){
+         pocketed[i].position.x = 100;
+         pocketed[i].position.y = player1Height;
+         pocketed[i].display();
+         player1Height += 40;
+       }
+     }
+     for (int k = 9; k < pocketed.length;k++){
+       if (pocketed[k] != null){
+         pocketed[k].position.x = 1000;
+         pocketed[k].position.y = player2Height;
+         pocketed[k].display();
+         player2Height += 40;
+       }
+     }
+     
+   }
   }
   
   
