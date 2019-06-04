@@ -333,9 +333,15 @@ class Table {
       }
     }
   }
-
+    int turnnn = playerTurn;
+          if (turnnn == 1){
+            turnnn++;
+          }
+          else{
+            turnnn--;
+          }
     //player1's turn 
-    if (playerTurn == 1) {
+    if (turnnn == 1) {
       if (player1Stripe) { //player1 is stripes
         if (allStripesDone) { //all stripes are done
           if (eightBallDone) {
@@ -363,7 +369,7 @@ class Table {
       }
     }
     //player2's turn
-    if (playerTurn == 2) {
+    if (turnnn == 2) {
       if (player1Stripe) { //player2 is solids
         if (allSolidsDone) { //all stripes are done
           if (eightBallDone) {
