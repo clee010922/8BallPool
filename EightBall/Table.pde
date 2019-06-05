@@ -158,6 +158,30 @@ class Table {
     for (int i = 0; i < holes.length && holes[i] != null; i++) {
       holes[i].display();
     }
+    fill(255,255,255);
+    ellipse(359.1,124.9,5,5);
+    ellipse(428.3,124.9,5,5);
+    ellipse(497.3,124.9,5,5);
+    
+    ellipse(692.5,124.9,5,5);
+    ellipse(765,124.9,5,5);
+    ellipse(837.5,124.9,5,5);
+    
+    ellipse(359.1,475,5,5);
+    ellipse(428.3,475,5,5);
+    ellipse(497.3,475,5,5);
+    
+    ellipse(692.5,475,5,5);
+    ellipse(765,475,5,5);
+    ellipse(837.5,475,5,5);
+    
+    ellipse(258.3,226.7,5,5);
+    ellipse(258.3,300,5,5);
+    ellipse(258.3,373.3,5,5);
+    
+    ellipse(941.65,226.7,5,5);
+    ellipse(941.65,300,5,5);
+    ellipse(941.65,373.3,5,5);
     for (int i = 0; i < onTable.length; i++) {
       if (onTable[i] != null) {
         onTable[i].display();
@@ -308,7 +332,9 @@ class Table {
               }
             }
           }
-          int turnn = playerTurn;
+          
+        }
+        int turnn = playerTurn;
           if (turnn == 1){
             turnn++;
           }
@@ -327,7 +353,6 @@ class Table {
           if (turnn == 2 && player1Stripe && i < 8){
             goAgain = true;
           }
-        }
         if (goAgain){
           if (playerTurn == 2){
             playerTurn--;
