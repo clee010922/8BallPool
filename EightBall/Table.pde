@@ -169,8 +169,8 @@ class Table {
     if (onTable[0] == null){
       onTable[0] = pocketed[0];
       pocketed[0] = null;
-      onTable[0].position.x = 100;
-      onTable[0].position.y = 100;
+      onTable[0].position.x = 590;
+      onTable[0].position.y = 20;
       onTable[0].speed.x = 0;
       onTable[0].speed.y = 0;
       whiteIsMoveable = true;
